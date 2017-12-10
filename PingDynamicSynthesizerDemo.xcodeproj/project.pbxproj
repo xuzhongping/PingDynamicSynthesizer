@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119F81FDCE69300ACDE05 /* AppDelegate.m */; };
+		EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119FB1FDCE69300ACDE05 /* ViewController.m */; };
+		EDD119FF1FDCE69300ACDE05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD119FD1FDCE69300ACDE05 /* Main.storyboard */; };
+		EDD11A011FDCE69300ACDE05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDD11A001FDCE69300ACDE05 /* Assets.xcassets */; };
+		EDD11A041FDCE69300ACDE05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD11A021FDCE69300ACDE05 /* LaunchScreen.storyboard */; };
+		EDD11A071FDCE69300ACDE05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A061FDCE69300ACDE05 /* main.m */; };
+		EDD11A111FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A101FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m */; };
+		EDD11A1C1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A1B1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.m */; };
+		EDD11A2B1FDCE6B200ACDE05 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A2A1FDCE6B200ACDE05 /* Person.m */; };
+		EDD11A2E1FDCE6C100ACDE05 /* Person+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A2D1FDCE6C100ACDE05 /* Person+Extra.m */; };
+		EDD11A341FDCE72000ACDE05 /* PingDynamicSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A301FDCE72000ACDE05 /* PingDynamicSynthesizer.m */; };
+		EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDD11A0D1FDCE69300ACDE05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDD119EC1FDCE69300ACDE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDD119F31FDCE69300ACDE05;
+			remoteInfo = PingDynamicSynthesizerDemo;
+		};
+		EDD11A181FDCE69300ACDE05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDD119EC1FDCE69300ACDE05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDD119F31FDCE69300ACDE05;
+			remoteInfo = PingDynamicSynthesizerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDD119F41FDCE69300ACDE05 /* PingDynamicSynthesizerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PingDynamicSynthesizerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD119F71FDCE69300ACDE05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EDD119F81FDCE69300ACDE05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EDD119FA1FDCE69300ACDE05 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EDD119FB1FDCE69300ACDE05 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EDD119FE1FDCE69300ACDE05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDD11A001FDCE69300ACDE05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDD11A031FDCE69300ACDE05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDD11A051FDCE69300ACDE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD11A061FDCE69300ACDE05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EDD11A0C1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PingDynamicSynthesizerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD11A101FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizerDemoTests.m; sourceTree = "<group>"; };
+		EDD11A121FDCE69300ACDE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD11A171FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PingDynamicSynthesizerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD11A1B1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizerDemoUITests.m; sourceTree = "<group>"; };
+		EDD11A1D1FDCE69300ACDE05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD11A291FDCE6B200ACDE05 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		EDD11A2A1FDCE6B200ACDE05 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		EDD11A2C1FDCE6C100ACDE05 /* Person+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+Extra.h"; sourceTree = "<group>"; };
+		EDD11A2D1FDCE6C100ACDE05 /* Person+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+Extra.m"; sourceTree = "<group>"; };
+		EDD11A301FDCE72000ACDE05 /* PingDynamicSynthesizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizer.m; sourceTree = "<group>"; };
+		EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingWeakHelper.m; sourceTree = "<group>"; };
+		EDD11A321FDCE72000ACDE05 /* PingWeakHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingWeakHelper.h; sourceTree = "<group>"; };
+		EDD11A331FDCE72000ACDE05 /* PingDynamicSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingDynamicSynthesizer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDD119F11FDCE69300ACDE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A091FDCE69300ACDE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A141FDCE69300ACDE05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDD119EB1FDCE69300ACDE05 = {
+			isa = PBXGroup;
+			children = (
+				EDD11A2F1FDCE6EB00ACDE05 /* PingDynamicSynthesizer */,
+				EDD119F61FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */,
+				EDD11A0F1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests */,
+				EDD11A1A1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests */,
+				EDD119F51FDCE69300ACDE05 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDD119F51FDCE69300ACDE05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDD119F41FDCE69300ACDE05 /* PingDynamicSynthesizerDemo.app */,
+				EDD11A0C1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.xctest */,
+				EDD11A171FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDD119F61FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				EDD119F71FDCE69300ACDE05 /* AppDelegate.h */,
+				EDD119F81FDCE69300ACDE05 /* AppDelegate.m */,
+				EDD119FA1FDCE69300ACDE05 /* ViewController.h */,
+				EDD119FB1FDCE69300ACDE05 /* ViewController.m */,
+				EDD119FD1FDCE69300ACDE05 /* Main.storyboard */,
+				EDD11A001FDCE69300ACDE05 /* Assets.xcassets */,
+				EDD11A021FDCE69300ACDE05 /* LaunchScreen.storyboard */,
+				EDD11A051FDCE69300ACDE05 /* Info.plist */,
+				EDD11A061FDCE69300ACDE05 /* main.m */,
+				EDD11A291FDCE6B200ACDE05 /* Person.h */,
+				EDD11A2A1FDCE6B200ACDE05 /* Person.m */,
+				EDD11A2C1FDCE6C100ACDE05 /* Person+Extra.h */,
+				EDD11A2D1FDCE6C100ACDE05 /* Person+Extra.m */,
+			);
+			path = PingDynamicSynthesizerDemo;
+			sourceTree = "<group>";
+		};
+		EDD11A0F1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDD11A101FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m */,
+				EDD11A121FDCE69300ACDE05 /* Info.plist */,
+			);
+			path = PingDynamicSynthesizerDemoTests;
+			sourceTree = "<group>";
+		};
+		EDD11A1A1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EDD11A1B1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.m */,
+				EDD11A1D1FDCE69300ACDE05 /* Info.plist */,
+			);
+			path = PingDynamicSynthesizerDemoUITests;
+			sourceTree = "<group>";
+		};
+		EDD11A2F1FDCE6EB00ACDE05 /* PingDynamicSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				EDD11A331FDCE72000ACDE05 /* PingDynamicSynthesizer.h */,
+				EDD11A301FDCE72000ACDE05 /* PingDynamicSynthesizer.m */,
+				EDD11A321FDCE72000ACDE05 /* PingWeakHelper.h */,
+				EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */,
+			);
+			path = PingDynamicSynthesizer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDD119F31FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD11A201FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemo" */;
+			buildPhases = (
+				EDD119F01FDCE69300ACDE05 /* Sources */,
+				EDD119F11FDCE69300ACDE05 /* Frameworks */,
+				EDD119F21FDCE69300ACDE05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PingDynamicSynthesizerDemo;
+			productName = PingDynamicSynthesizerDemo;
+			productReference = EDD119F41FDCE69300ACDE05 /* PingDynamicSynthesizerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDD11A0B1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD11A231FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemoTests" */;
+			buildPhases = (
+				EDD11A081FDCE69300ACDE05 /* Sources */,
+				EDD11A091FDCE69300ACDE05 /* Frameworks */,
+				EDD11A0A1FDCE69300ACDE05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDD11A0E1FDCE69300ACDE05 /* PBXTargetDependency */,
+			);
+			name = PingDynamicSynthesizerDemoTests;
+			productName = PingDynamicSynthesizerDemoTests;
+			productReference = EDD11A0C1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EDD11A161FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDD11A261FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemoUITests" */;
+			buildPhases = (
+				EDD11A131FDCE69300ACDE05 /* Sources */,
+				EDD11A141FDCE69300ACDE05 /* Frameworks */,
+				EDD11A151FDCE69300ACDE05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDD11A191FDCE69300ACDE05 /* PBXTargetDependency */,
+			);
+			name = PingDynamicSynthesizerDemoUITests;
+			productName = PingDynamicSynthesizerDemoUITests;
+			productReference = EDD11A171FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDD119EC1FDCE69300ACDE05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "徐仲平";
+				TargetAttributes = {
+					EDD119F31FDCE69300ACDE05 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					EDD11A0B1FDCE69300ACDE05 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDD119F31FDCE69300ACDE05;
+					};
+					EDD11A161FDCE69300ACDE05 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EDD119F31FDCE69300ACDE05;
+					};
+				};
+			};
+			buildConfigurationList = EDD119EF1FDCE69300ACDE05 /* Build configuration list for PBXProject "PingDynamicSynthesizerDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDD119EB1FDCE69300ACDE05;
+			productRefGroup = EDD119F51FDCE69300ACDE05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDD119F31FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */,
+				EDD11A0B1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests */,
+				EDD11A161FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDD119F21FDCE69300ACDE05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD11A041FDCE69300ACDE05 /* LaunchScreen.storyboard in Resources */,
+				EDD11A011FDCE69300ACDE05 /* Assets.xcassets in Resources */,
+				EDD119FF1FDCE69300ACDE05 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A0A1FDCE69300ACDE05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A151FDCE69300ACDE05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDD119F01FDCE69300ACDE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */,
+				EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */,
+				EDD11A071FDCE69300ACDE05 /* main.m in Sources */,
+				EDD11A341FDCE72000ACDE05 /* PingDynamicSynthesizer.m in Sources */,
+				EDD11A2B1FDCE6B200ACDE05 /* Person.m in Sources */,
+				EDD11A2E1FDCE6C100ACDE05 /* Person+Extra.m in Sources */,
+				EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A081FDCE69300ACDE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD11A111FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDD11A131FDCE69300ACDE05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD11A1C1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDD11A0E1FDCE69300ACDE05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDD119F31FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */;
+			targetProxy = EDD11A0D1FDCE69300ACDE05 /* PBXContainerItemProxy */;
+		};
+		EDD11A191FDCE69300ACDE05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDD119F31FDCE69300ACDE05 /* PingDynamicSynthesizerDemo */;
+			targetProxy = EDD11A181FDCE69300ACDE05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDD119FD1FDCE69300ACDE05 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD119FE1FDCE69300ACDE05 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDD11A021FDCE69300ACDE05 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD11A031FDCE69300ACDE05 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDD11A1E1FDCE69300ACDE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EDD11A1F1FDCE69300ACDE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDD11A211FDCE69300ACDE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDD11A221FDCE69300ACDE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDD11A241FDCE69300ACDE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PingDynamicSynthesizerDemo.app/PingDynamicSynthesizerDemo";
+			};
+			name = Debug;
+		};
+		EDD11A251FDCE69300ACDE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PingDynamicSynthesizerDemo.app/PingDynamicSynthesizerDemo";
+			};
+			name = Release;
+		};
+		EDD11A271FDCE69300ACDE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PingDynamicSynthesizerDemo;
+			};
+			name = Debug;
+		};
+		EDD11A281FDCE69300ACDE05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PingDynamicSynthesizerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infomedia.PingDynamicSynthesizerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PingDynamicSynthesizerDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDD119EF1FDCE69300ACDE05 /* Build configuration list for PBXProject "PingDynamicSynthesizerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD11A1E1FDCE69300ACDE05 /* Debug */,
+				EDD11A1F1FDCE69300ACDE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDD11A201FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD11A211FDCE69300ACDE05 /* Debug */,
+				EDD11A221FDCE69300ACDE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDD11A231FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD11A241FDCE69300ACDE05 /* Debug */,
+				EDD11A251FDCE69300ACDE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDD11A261FDCE69300ACDE05 /* Build configuration list for PBXNativeTarget "PingDynamicSynthesizerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDD11A271FDCE69300ACDE05 /* Debug */,
+				EDD11A281FDCE69300ACDE05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDD119EC1FDCE69300ACDE05 /* Project object */;
+}
