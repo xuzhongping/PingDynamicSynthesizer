@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface PingWeakHelper : NSObject
-+ (instancetype _Nullable ) weakHelper:(nonnull id)target;
++ (instancetype _Nonnull) weakHelper:(nonnull id)target;
 @end
