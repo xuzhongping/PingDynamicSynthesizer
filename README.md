@@ -1,6 +1,8 @@
 # PingDynamicSynthesizer
 Auto synthesize setter getter methods for category
 
+[![Version](https://img.shields.io/cocoapods/v/PingDynamicSynthesizer.svg?style=flat)](http://cocoapods.org/pods/PingDynamicSynthesizer)
+[![Pod License](http://img.shields.io/cocoapods/l/PingDynamicSynthesizer.svg?style=flat)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 
 自动为你的Category中的property合成属性(setter gettter)
@@ -28,7 +30,7 @@ Auto synthesize setter getter methods for category
 
 ## 更新
 * 0.1.0 
-* 
+
 完成除assign以外的所有的修饰词的对象类型的属性合成
 
 * 0.1.1
