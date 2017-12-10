@@ -46,6 +46,17 @@ Auto synthesize setter getter methods for category
 }
 @end
 ```
+
+## 支持Cocoapods
+```
+pod 'PingDynamicSynthesizer'
+```
+* 如果你使用 pod search 命令搜不到，请执行下面的命令更新自己的 cocoapods 官方索引库:
+
+```
+pod repo update
+```
+
 ## 联系我
 
 > 可以将发现的问题或有好的建议告诉我，邮箱: 1021057927@qq.com
