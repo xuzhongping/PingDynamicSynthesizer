@@ -12,7 +12,7 @@
 
 @protocol DynamicPropertyDataSource<NSObject>
 
-@required
+@optional
 /**
  implement the method
 

@@ -28,7 +28,12 @@ Auto synthesize setter getter methods for category
 
 ## 更新
 * 0.1.0 
+* 
 完成除assign以外的所有的修饰词的对象类型的属性合成
+
+* 0.1.1
+
+协议方法改为 @optional ，在不实现协议方法时，自动合成所有没有实现setter或getter的property，包括继承父类的property，如果想要保证自定义返回需要合成的property，请实现协议中的方法返回key的数组。
 
 ## 使用方式
 1. 按照规格在category.h文件中书写property
@@ -43,6 +48,7 @@ Auto synthesize setter getter methods for category
 
 @implementation Person (Extra)
 
+// 可不实现，自动合成所有没有实现setter或getter的property，包括继承父类的property
 + (NSArray *)dynamicProperty{
     return @[@"name"]; // 返回需要合成属性的key数组
 }

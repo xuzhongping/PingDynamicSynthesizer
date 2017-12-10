@@ -21,7 +21,7 @@
     [PingDynamicSynthesizer dynamicPropertyClass:[Person class]];
     
     Person *p = [Person new];
-    [p setName:@"xiaoming"];
+//    [p setName:@"xiaoming"];
     [p setValue:@"zhangsan" forKey:@"name"];
     NSLog(@"%@",p.name);
 }

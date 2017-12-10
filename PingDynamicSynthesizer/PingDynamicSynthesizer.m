@@ -155,37 +155,62 @@ id dynamicGetMethod_OBJC_ASSOCIATION_AUTO(id _self,SEL _cmd){
 + (void)dynamicPropertyClass:(Class<DynamicPropertyDataSource>)class_p{
     
     class_p = [class_p class];
+    CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
+    CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     
     if (![class_p conformsToProtocol:@protocol(DynamicPropertyDataSource)]) {
         NSAssert(false, @"no conforms DynamicPropertyDataSource");
         return;
     }
     
+    // if  no Implementation dynamicProperty, synthesize all property of not Implementation setter and getter
+    
     if (![class_p  respondsToSelector:@selector(dynamicProperty)]) {
-        NSAssert(false, @"no implement dynamicProperty");
+        unsigned int pty_c = 0;
+        objc_property_t *ptys =  class_copyPropertyList(class_p, &pty_c);
+        for (int i = 0; i < pty_c; i++) {
+            objc_property_t pty = ptys[i];
+            const char  *att_c =  property_getAttributes(pty);
+            const char  *name_c = property_getName(pty);
+            NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
+            NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
+            SEL setSel = synthesizeSetSel(name);
+            SEL getSel = synthesizeGetSel(name);
+            Method setMethod = class_getInstanceMethod(class_p, setSel);
+            Method getMethod = class_getInstanceMethod(class_p, getSel);
+            if (!(setMethod || getMethod)) {
+                uintptr_t policy = analyzePolicy(att);
+                if (policy == OBJC_ASSOCIATION_UNDEFINE) {
+                    NSString *description = [NSString stringWithFormat:@"%@'%@' nonsupport dynamic synthesize property",NSStringFromClass(class_p),name];
+                    NSAssert(false, description);
+                    continue;
+                }
+                dispenseSetGetImplementation(policy, setSel, getSel, class_p);
+            }
+        }
+        
         return;
-    }
-    
-    NSArray *rawPropertys = [class_p dynamicProperty];
-    if (!rawPropertys || rawPropertys.count == 0) {
-        return;
-    }
-    
-
-    unsigned int pty_c = 0;
-    CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
-    CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
-    objc_property_t *ptys = class_copyPropertyList(class_p, &pty_c);
-    for (int i = 0; i < pty_c; i++) {
-        objc_property_t pty = ptys[i];
-        NSString *ptyName = [NSString stringWithCString:property_getName(pty) encoding:NSUTF8StringEncoding];
-        for (NSString *raw_ptyName in rawPropertys) {
-            if ([raw_ptyName isEqualToString:ptyName]) {
-                CFArrayAppendValue(raw_ptys, pty);
-                break;
+    }else{
+        NSArray *rawPropertys = [class_p dynamicProperty];
+        if (!rawPropertys || rawPropertys.count == 0) {
+            return;
+        }
+        
+        unsigned int pty_c = 0;
+        objc_property_t *ptys = class_copyPropertyList(class_p, &pty_c);
+        for (int i = 0; i < pty_c; i++) {
+            objc_property_t pty = ptys[i];
+            NSString *ptyName = [NSString stringWithCString:property_getName(pty) encoding:NSUTF8StringEncoding];
+            
+            for (NSString *raw_ptyName in rawPropertys) {
+                if ([raw_ptyName isEqualToString:ptyName]) {
+                    CFArrayAppendValue(raw_ptys, pty);
+                    break;
+                }
             }
         }
     }
+
     
     CFIndex raw_pty_c = CFArrayGetCount(raw_ptys);
     for (int i = 0; i < raw_pty_c; i++) {
@@ -193,6 +218,7 @@ id dynamicGetMethod_OBJC_ASSOCIATION_AUTO(id _self,SEL _cmd){
         const char  *att_c =  property_getAttributes(raw_pty);
         const char  *name_c = property_getName(raw_pty);
         NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
+        NSLog(@"--%@--%s\n",att,name_c);
         NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
         SEL setSel = synthesizeSetSel(name);
         SEL getSel = synthesizeGetSel(name);

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PingDynamicSynthesizer"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Auto synthesize"
 
   s.platform     = :ios, '6.0'
