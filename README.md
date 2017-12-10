@@ -9,6 +9,8 @@ Auto synthesize setter getter methods for category
 ## 功能
 自动为你在category中写的property完成真正的属性合成。
 
+支持主流的JSON转MODEL库。
+
 支持属性修饰类型:
 - [x]  strong + nonatomic
 - [x]  copy + nonatomic
@@ -18,7 +20,7 @@ Auto synthesize setter getter methods for category
 - [x]  weak + atomic
 
 注意点: 
-* category中请严格按照 ++@property (nonatomic, copy) type *name++ 规格书写。
+* category中请严格按照 @property (nonatomic, copy) type *name 规格书写。
 * 目前只支持对象类型属性合成，且不支持assign关键字的修饰，对于基本数据类型可用 NSNumber 类型代替使用。
 
 ## 支持
