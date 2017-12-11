@@ -4,6 +4,7 @@ Auto synthesize setter getter methods for category
 [![Version](https://img.shields.io/cocoapods/v/PingDynamicSynthesizer.svg?style=flat)](http://cocoapods.org/pods/PingDynamicSynthesizer)
 [![Pod License](http://img.shields.io/cocoapods/l/PingDynamicSynthesizer.svg?style=flat)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
+![iOS 6.0+](https://img.shields.io/badge/iOS-6.0%2B-blue.svg)
 
 自动为你的Category中的property合成属性(setter gettter)
 实现思路可参考本文:[老生常谈category增加属性的几种操作](https://www.junghsu.top)
@@ -25,8 +26,7 @@ Auto synthesize setter getter methods for category
 * category中请严格按照 @property (nonatomic, copy) type *name 规格书写。
 * 目前只支持对象类型属性合成，且不支持assign关键字的修饰，对于基本数据类型可用 NSNumber 类型代替使用。
 
-## 支持
-- [x] iOS6+
+
 
 ## 更新
 * 0.1.0 
