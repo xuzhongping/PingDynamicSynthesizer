@@ -159,11 +159,11 @@ id dynamicGetMethod_OBJC_ASSOCIATION_AUTO(id _self,SEL _cmd){
     CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     
     if (![class_p conformsToProtocol:@protocol(DynamicPropertyDataSource)]) {
-        NSAssert(false, @"no conforms DynamicPropertyDataSource");
+        NSAssert(false, @"You not conforms DynamicPropertyDataSource");
         return;
     }
     
-    // if  no Implementation dynamicProperty, synthesize all property of not Implementation setter and getter
+    // If you not implementation method 'dynamicProperty',then synthesize property list unless you not implementation setter and getter method.
     
     if (![class_p  respondsToSelector:@selector(dynamicProperty)]) {
         unsigned int pty_c = 0;
@@ -218,7 +218,7 @@ id dynamicGetMethod_OBJC_ASSOCIATION_AUTO(id _self,SEL _cmd){
         const char  *att_c =  property_getAttributes(raw_pty);
         const char  *name_c = property_getName(raw_pty);
         NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
-        NSLog(@"--%@--%s\n",att,name_c);
+//        NSLog(@"--%@--%s\n",att,name_c);
         NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
         SEL setSel = synthesizeSetSel(name);
         SEL getSel = synthesizeGetSel(name);

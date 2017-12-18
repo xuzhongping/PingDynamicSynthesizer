@@ -14,7 +14,7 @@
 
 @optional
 /**
- implement the method
+ Implementation the method
 
  @return @[key1,key2,key3,.....];
  */
@@ -25,7 +25,7 @@
 @interface PingDynamicSynthesizer : NSObject
 
 /**
- dynamic synthesize the class's setter getter methods
+ Dynamic synthesize the class's setter and getter methods
 
  @param class_p the class need synthesize methods
  */
