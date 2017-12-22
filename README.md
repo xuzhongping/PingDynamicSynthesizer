@@ -38,7 +38,8 @@ Auto synthesize setter getter methods for category
 协议方法改为 @optional ，在不实现协议方法时，自动合成所有没有实现setter或getter的property，包括继承父类的property，如果想要保证自定义返回需要合成的property，请实现协议中的方法返回key的数组。
 
 * 0.1.2 
-上个版本的weak实现策略是我的失误写错了，这个版本修复了weak的策略，采用azy set to nil方案。
+
+上个版本的weak实现策略是我的失误写错了，这个版本修复了weak的策略，采用 lazy set to nil方案。
 
 ## 使用方式
 1. 按照规格在category.h文件中书写property
