@@ -17,10 +17,10 @@ Auto synthesize setter getter methods for category
 支持属性修饰类型:
 - [x]  strong + nonatomic
 - [x]  copy + nonatomic
-- [x]  weak + nonatomic
+- [x]  ~~weak + nonatomic~~ 正在修复
 - [x]  strong + atomic
 - [x]  copy + atomic
-- [x]  weak + atomic
+- [x]  ~~weak + atomic~~ 正在修复
 
 注意点: 
 * category中请严格按照 @property (nonatomic, copy) type *name 规格书写。
