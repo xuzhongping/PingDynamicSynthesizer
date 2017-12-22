@@ -10,6 +10,6 @@
 
 @implementation Person (Extra)
 + (NSArray *)dynamicProperty{
-    return @[@"name",@"ss"];
+    return @[@"name",@"ss",@"obj"];
 }
 @end

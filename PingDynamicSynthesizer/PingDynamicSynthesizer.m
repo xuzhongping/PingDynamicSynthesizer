@@ -59,6 +59,11 @@ static inline uintptr_t analyzePolicy(NSString *pty_att){
     return policy;
 }
 
+
+/**
+ The func serve setter SEL exchange to getter for ObjectKey,
+ when the func input a getter SEL,not exchange.
+ */
 static inline void * getAssociatedObjectKey(SEL setSel){
     NSString *setSelName = NSStringFromSelector(setSel);
     if (![setSelName containsString:@"set"]) {
@@ -123,38 +128,38 @@ static void dispenseSetGetImplementation(uintptr_t policy, SEL setSel,SEL getSel
 }
 
 #pragma mark - DynamicSet
-void dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self, getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-void dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self, getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-void dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self,  getAssociatedObjectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-void dynamicSetMethod_OBJC_ASSOCIATION_RETAIN(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_RETAIN(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self, getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN);
 }
 
 
-void dynamicSetMethod_OBJC_ASSOCIATION_COPY(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_COPY(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self, getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_COPY);
 }
 
-void dynamicSetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd,id value){
+static void dynamicSetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd,id value){
     objc_setAssociatedObject(_self,  getAssociatedObjectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN);
 }
 
 
 #pragma mark - DynamicGet
-id dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK(id _self,SEL _cmd){
+static id dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK(id _self,SEL _cmd){
     return  objc_getAssociatedObject(_self, _cmd);
 }
 
-id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
+static id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
     PingWeakHelper *helper = (PingWeakHelper *)objc_getAssociatedObject(_self, _cmd);
     
     // lazy set to nil
@@ -172,53 +177,32 @@ id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
 + (void)dynamicPropertyClass:(Class<DynamicPropertyDataSource>)class_p{
     
     class_p = [class_p class];
-    CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
-    CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     
     if (![class_p conformsToProtocol:@protocol(DynamicPropertyDataSource)]) {
         NSAssert(false, @"You not conforms DynamicPropertyDataSource");
         return;
     }
     
-    // If you not implementation method 'dynamicProperty',then synthesize property list unless you not implementation setter and getter method.
+    CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
+    CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     
-    if (![class_p  respondsToSelector:@selector(dynamicProperty)]) {
+    if (![class_p respondsToSelector:@selector(dynamicProperty)]) {
         unsigned int pty_c = 0;
         objc_property_t *ptys =  class_copyPropertyList(class_p, &pty_c);
         for (int i = 0; i < pty_c; i++) {
             objc_property_t pty = ptys[i];
-            const char  *att_c =  property_getAttributes(pty);
-            const char  *name_c = property_getName(pty);
-            NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
-            NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
-            SEL setSel = synthesizeSetSel(name);
-            SEL getSel = synthesizeGetSel(name);
-            Method setMethod = class_getInstanceMethod(class_p, setSel);
-            Method getMethod = class_getInstanceMethod(class_p, getSel);
-            if (!(setMethod || getMethod)) {
-                uintptr_t policy = analyzePolicy(att);
-                if (policy == OBJC_ASSOCIATION_UNDEFINE) {
-                    NSString *description = [NSString stringWithFormat:@"%@'%@' nonsupport dynamic synthesize property",NSStringFromClass(class_p),name];
-                    NSAssert(false, description);
-                    continue;
-                }
-                dispenseSetGetImplementation(policy, setSel, getSel, class_p);
-            }
+            CFArrayAppendValue(raw_ptys, pty);
         }
-        
-        return;
     }else{
         NSArray *rawPropertys = [class_p dynamicProperty];
         if (!rawPropertys || rawPropertys.count == 0) {
             return;
         }
-        
         unsigned int pty_c = 0;
         objc_property_t *ptys = class_copyPropertyList(class_p, &pty_c);
         for (int i = 0; i < pty_c; i++) {
             objc_property_t pty = ptys[i];
             NSString *ptyName = [NSString stringWithCString:property_getName(pty) encoding:NSUTF8StringEncoding];
-            
             for (NSString *raw_ptyName in rawPropertys) {
                 if ([raw_ptyName isEqualToString:ptyName]) {
                     CFArrayAppendValue(raw_ptys, pty);
@@ -228,14 +212,13 @@ id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
         }
     }
 
-    
     CFIndex raw_pty_c = CFArrayGetCount(raw_ptys);
     for (int i = 0; i < raw_pty_c; i++) {
         objc_property_t raw_pty = (objc_property_t)CFArrayGetValueAtIndex(raw_ptys, i);
         const char  *att_c =  property_getAttributes(raw_pty);
         const char  *name_c = property_getName(raw_pty);
         NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
-//        NSLog(@"--%@--%s\n",att,name_c);
+        NSLog(@"--%@--%s\n",att,name_c);
         NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
         SEL setSel = synthesizeSetSel(name);
         SEL getSel = synthesizeGetSel(name);
