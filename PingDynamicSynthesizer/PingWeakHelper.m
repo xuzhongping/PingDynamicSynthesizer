@@ -9,7 +9,7 @@
 #import "PingWeakHelper.h"
 
 @interface PingWeakHelper()
-@property (nonatomic, weak) id target;
+@property (nonatomic, weak,readwrite) id target;
 @end
 
 @implementation PingWeakHelper

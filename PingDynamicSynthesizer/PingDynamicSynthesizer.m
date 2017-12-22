@@ -61,6 +61,9 @@ static inline uintptr_t analyzePolicy(NSString *pty_att){
 
 static inline void * getAssociatedObjectKey(SEL setSel){
     NSString *setSelName = NSStringFromSelector(setSel);
+    if (![setSelName containsString:@"set"]) {
+        return (void *)NSSelectorFromString(setSelName);
+    }
     setSelName = [setSelName substringFromIndex:3];
     NSString  *firstGetSelName = [setSelName substringToIndex:1];
     firstGetSelName = [firstGetSelName lowercaseString];
@@ -77,37 +80,37 @@ static void dispenseSetGetImplementation(uintptr_t policy, SEL setSel,SEL getSel
         case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
         }
             break;
         case OBJC_ASSOCIATION_COPY_NONATOMIC:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
         }
             break;
         case OBJC_ASSOCIATION_WEAK_NONATOMIC:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, "@@:");
         }
             break;
         case OBJC_ASSOCIATION_RETAIN:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
         }
             break;
         case OBJC_ASSOCIATION_COPY:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
         }
             break;
         case OBJC_ASSOCIATION_WEAK:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, "@@:");
         }
             break;
             
@@ -129,7 +132,7 @@ void dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self,SEL _cmd,id value
 }
 
 void dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,SEL _cmd,id value){
-    objc_setAssociatedObject([PingWeakHelper weakHelper:_self], getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(_self,  getAssociatedObjectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 void dynamicSetMethod_OBJC_ASSOCIATION_RETAIN(id _self,SEL _cmd,id value){
@@ -142,15 +145,29 @@ void dynamicSetMethod_OBJC_ASSOCIATION_COPY(id _self,SEL _cmd,id value){
 }
 
 void dynamicSetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd,id value){
-    objc_setAssociatedObject([PingWeakHelper weakHelper:_self], getAssociatedObjectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(_self,  getAssociatedObjectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN);
 }
 
 
 #pragma mark - DynamicGet
-id dynamicGetMethod_OBJC_ASSOCIATION_AUTO(id _self,SEL _cmd){
+id dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK(id _self,SEL _cmd){
     return  objc_getAssociatedObject(_self, _cmd);
 }
 
+id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
+    PingWeakHelper *helper = (PingWeakHelper *)objc_getAssociatedObject(_self, _cmd);
+    
+    // lazy set to nil
+    if (!objc_getAssociatedObject(_self, getAssociatedObjectKey(_cmd))) {
+        return nil;
+    }
+    
+    if (helper.target == nil) {
+        objc_setAssociatedObject(_self, getAssociatedObjectKey(_cmd), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        return nil;
+    }
+    return helper.target;
+}
 
 + (void)dynamicPropertyClass:(Class<DynamicPropertyDataSource>)class_p{
     

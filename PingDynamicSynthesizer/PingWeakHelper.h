@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PingWeakHelper : NSObject
+@property (nonatomic, weak,readonly) id target;
+
 + (instancetype _Nonnull) weakHelper:(nonnull id)target;
 @end
