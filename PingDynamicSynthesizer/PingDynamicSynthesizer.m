@@ -85,7 +85,7 @@ static void dispenseSetGetImplementation(uintptr_t policy, SEL setSel,SEL getSel
         case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
         {
             class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK,"@@:");
         }
             break;
         case OBJC_ASSOCIATION_COPY_NONATOMIC:
@@ -191,7 +191,15 @@ static id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
         objc_property_t *ptys =  class_copyPropertyList(class_p, &pty_c);
         for (int i = 0; i < pty_c; i++) {
             objc_property_t pty = ptys[i];
-            CFArrayAppendValue(raw_ptys, pty);
+            const char  *name_c = property_getName(pty);
+            NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
+            SEL setSel = synthesizeSetSel(name);
+            SEL getSel = synthesizeGetSel(name);
+            Method setMethod = class_getInstanceMethod(class_p, setSel);
+            Method getMethod = class_getInstanceMethod(class_p, getSel);
+            if (!(setMethod || getMethod)) {
+                CFArrayAppendValue(raw_ptys, pty);
+            }
         }
     }else{
         NSArray *rawPropertys = [class_p dynamicProperty];

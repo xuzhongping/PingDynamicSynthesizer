@@ -10,6 +10,6 @@
 #import "PingDynamicSynthesizer.h"
 
 @interface Person (Extra)<DynamicPropertyDataSource>
-@property (nonatomic, weak) NSString *name;
-@property (nonatomic,weak)NSObject     *ss;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic,strong)NSObject     *ss;
 @end
