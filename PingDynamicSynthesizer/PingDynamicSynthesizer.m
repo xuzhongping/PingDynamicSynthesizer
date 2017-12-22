@@ -19,6 +19,9 @@
 #define OBJC_ASSOCIATION_WEAK           01556
 #define OBJC_ASSOCIATION_UNDEFINE       01557
 
+#define SET_METHOD_TYPE "v@:@"
+#define GET_METHOD_TYPE "@@:"
+
 @implementation PingDynamicSynthesizer
 
 
@@ -84,38 +87,38 @@ static void dispenseSetGetImplementation(uintptr_t policy, SEL setSel,SEL getSel
     switch (policy) {
         case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK,"@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN_NONATOMIC, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK,GET_METHOD_TYPE);
         }
             break;
         case OBJC_ASSOCIATION_COPY_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY_NONATOMIC, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
         }
             break;
         case OBJC_ASSOCIATION_WEAK_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, "@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK_NONATOMIC, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, GET_METHOD_TYPE);
         }
             break;
         case OBJC_ASSOCIATION_RETAIN:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_RETAIN, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
         }
             break;
         case OBJC_ASSOCIATION_COPY:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, "@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_COPY, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
         }
             break;
         case OBJC_ASSOCIATION_WEAK:
         {
-            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK, "v@:@");
-            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, "@@:");
+            class_addMethod(class_p, setSel, (IMP)dynamicSetMethod_OBJC_ASSOCIATION_WEAK, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)dynamicGetMethod_OBJC_ASSOCIATION_WEAK, GET_METHOD_TYPE);
         }
             break;
             
@@ -226,7 +229,7 @@ static id dynamicGetMethod_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
         const char  *att_c =  property_getAttributes(raw_pty);
         const char  *name_c = property_getName(raw_pty);
         NSString *att = [NSString stringWithCString:att_c encoding:NSUTF8StringEncoding];
-        NSLog(@"--%@--%s\n",att,name_c);
+//        NSLog(@"--%@--%s\n",att,name_c);
         NSString *name = [NSString stringWithCString:name_c encoding:NSUTF8StringEncoding];
         SEL setSel = synthesizeSetSel(name);
         SEL getSel = synthesizeGetSel(name);
