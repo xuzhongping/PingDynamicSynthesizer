@@ -41,6 +41,10 @@ Auto synthesize setter getter methods for category
 
 上个版本的weak实现策略是我的失误写错了，这个版本修复了weak的策略，采用 lazy set to nil方案。
 
+* 0.2.0
+
+不再需要手动调用方法进行合成了，只需要让category遵守 DynamicPropertyProtocol 协议，就可实现自动合成。
+
 ## 使用方式
 1. 按照规格在category.h文件中书写property
 
@@ -48,7 +52,7 @@ Auto synthesize setter getter methods for category
 @property (nonatomic, copy) NSString *name;
 
 ```
-2. category中遵守 DynamicPropertyDataSource 协议,并实现协议中的方法
+2. category中遵守 DynamicPropertyProtocol 协议,并实现协议中的方法
 ```
 @interface Person (Extra)<DynamicPropertyDataSource>
 

@@ -9,7 +9,7 @@
 #import "Person.h"
 #import "PingDynamicSynthesizer.h"
 
-@interface Person (Extra)<DynamicPropertyDataSource>
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic,strong)NSObject     *ss;
+@interface Person (Extra)<DynamicPropertyProtocol>
+@property (nonatomic,   copy) NSString  *name;
+@property (nonatomic, strong) NSObject  *ss;
 @end

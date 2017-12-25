@@ -17,15 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [PingDynamicSynthesizer dynamicPropertyClass:[Person class]];
-    
+        
     Person *p = [Person new];
     [p setName:@"xiaoming"];
     
     [p setSs:[UIView new]];
     
-    NSLog(@"%@",p.ss);
+    NSLog(@"%@ %@",p.ss,p.name);
 }
 
 

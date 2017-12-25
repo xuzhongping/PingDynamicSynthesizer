@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 
-@protocol DynamicPropertyDataSource<NSObject>
+@protocol DynamicPropertyProtocol<NSObject>
 
 @optional
 /**
@@ -18,16 +18,10 @@
 
  @return @[key1,key2,key3,.....];
  */
-+ (NSArray *_Nullable)dynamicProperty;
++ (NSArray *_Nullable)dynamicPropertyKeys;
 
 @end
 
 @interface PingDynamicSynthesizer : NSObject
 
-/**
- Dynamic synthesize the class's setter and getter methods
-
- @param class_p the class need synthesize methods
- */
-+ (void)dynamicPropertyClass:(nonnull Class<DynamicPropertyDataSource>)class_p;
 @end
