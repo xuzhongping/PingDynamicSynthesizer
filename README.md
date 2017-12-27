@@ -25,6 +25,7 @@ Auto synthesize setter getter methods for category
 注意点: 
 * category中请严格按照 @property (nonatomic, copy) type *name 规格书写。
 * 目前只支持对象类型属性合成，且不支持assign关键字的修饰，对于基本数据类型可用 NSNumber 类型代替使用。
+* 当一个类要多个category时，尽量使用结构清晰的继承结构，需要单独合成的生property请只在一个分类中实现协议方法；或者不实现协议方法，为不合成的生property手动实现setter或者getter方法。
 
 
 
