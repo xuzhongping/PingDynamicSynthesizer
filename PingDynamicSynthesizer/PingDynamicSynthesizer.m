@@ -83,7 +83,9 @@ static inline void * _ping_get_associated_objectKey(SEL setSel){
 
 // static methods
 
-static void _ping_dispense_setget_implementation(uintptr_t policy, SEL setSel,SEL getSel,__nonnull Class class_p){
+static void _ping_dispense_setget_implementation(uintptr_t policy,
+                                                 SEL setSel,SEL getSel,
+                                                 __nonnull Class class_p){
     switch (policy) {
         case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
         {
@@ -131,38 +133,52 @@ static void _ping_dispense_setget_implementation(uintptr_t policy, SEL setSel,SE
 }
 
 #pragma mark - DynamicSet
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC(id _self,
+                                                                          SEL _cmd,
+                                                                          id value){
     objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self,
+                                                                        SEL _cmd,
+                                                                        id value){
     objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), value, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,
+                                                                        SEL _cmd,
+                                                                        id value){
     objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN(id _self,
+                                                                SEL _cmd,
+                                                                id value){
     objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), value, OBJC_ASSOCIATION_RETAIN);
 }
 
 
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY(id _self,
+                                                              SEL _cmd,
+                                                              id value){
     objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), value, OBJC_ASSOCIATION_COPY);
 }
 
-static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd,id value){
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK(id _self,
+                                                              SEL _cmd,
+                                                              id value){
     objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN);
 }
 
 
 #pragma mark - DynamicGet
-static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK(id _self,SEL _cmd){
+static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK(id _self,
+                                                                    SEL _cmd){
     return  objc_getAssociatedObject(_self, _cmd);
 }
 
-static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK(id _self,SEL _cmd){
+static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK(id _self,
+                                                            SEL _cmd){
     PingWeakHelper *helper = (PingWeakHelper *)objc_getAssociatedObject(_self, _cmd);
     
     // lazy set to nil
