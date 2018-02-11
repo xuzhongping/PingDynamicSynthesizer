@@ -69,7 +69,10 @@ Auto synthesize setter getter methods for category
 }
 @end
 
+```
+
 3. 当设为手动合成时，请在需要合成的时机调用如下代码:
+```
  [PingDynamicSynthesizer ping_dynamicProperty:cls];
 ```
 
