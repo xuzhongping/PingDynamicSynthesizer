@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2C669020302FDF00FFAD55 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C668F20302FDF00FFAD55 /* Student.m */; };
+		ED2C66932030300600FFAD55 /* Student+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C66922030300600FFAD55 /* Student+Extra.m */; };
 		EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119F81FDCE69300ACDE05 /* AppDelegate.m */; };
 		EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119FB1FDCE69300ACDE05 /* ViewController.m */; };
 		EDD119FF1FDCE69300ACDE05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD119FD1FDCE69300ACDE05 /* Main.storyboard */; };
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED2C668E20302FDF00FFAD55 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		ED2C668F20302FDF00FFAD55 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		ED2C66912030300600FFAD55 /* Student+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Student+Extra.h"; sourceTree = "<group>"; };
+		ED2C66922030300600FFAD55 /* Student+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Student+Extra.m"; sourceTree = "<group>"; };
 		EDD119F41FDCE69300ACDE05 /* PingDynamicSynthesizerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PingDynamicSynthesizerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD119F71FDCE69300ACDE05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDD119F81FDCE69300ACDE05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +133,10 @@
 				EDD11A2A1FDCE6B200ACDE05 /* Person.m */,
 				EDD11A2C1FDCE6C100ACDE05 /* Person+Extra.h */,
 				EDD11A2D1FDCE6C100ACDE05 /* Person+Extra.m */,
+				ED2C668E20302FDF00FFAD55 /* Student.h */,
+				ED2C668F20302FDF00FFAD55 /* Student.m */,
+				ED2C66912030300600FFAD55 /* Student+Extra.h */,
+				ED2C66922030300600FFAD55 /* Student+Extra.m */,
 			);
 			path = PingDynamicSynthesizerDemo;
 			sourceTree = "<group>";
@@ -296,9 +306,11 @@
 				EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */,
 				EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */,
 				EDD11A071FDCE69300ACDE05 /* main.m in Sources */,
+				ED2C669020302FDF00FFAD55 /* Student.m in Sources */,
 				EDD11A341FDCE72000ACDE05 /* PingDynamicSynthesizer.m in Sources */,
 				EDD11A2B1FDCE6B200ACDE05 /* Person.m in Sources */,
 				EDD11A2E1FDCE6C100ACDE05 /* Person+Extra.m in Sources */,
+				ED2C66932030300600FFAD55 /* Student+Extra.m in Sources */,
 				EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <objc/runtime.h>
+#import <objc/message.h>
 
+/**
+ *  You need to add the following fields in your 'info.plist' and set the value:
+ *  PingDynamicSynthesizerInquiry:(BOOL)
+ */
 
 @protocol DynamicPropertyProtocol<NSObject>
 
@@ -23,5 +27,5 @@
 @end
 
 @interface PingDynamicSynthesizer : NSObject
-
++ (void)ping_dynamicProperty:(nonnull Class<DynamicPropertyProtocol>)cls;
 @end

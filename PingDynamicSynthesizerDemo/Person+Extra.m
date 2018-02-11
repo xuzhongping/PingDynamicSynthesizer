@@ -9,7 +9,7 @@
 #import "Person+Extra.h"
 
 @implementation Person (Extra)
-+ (NSArray *)dynamicPropertyKeys{
-    return @[@"name",@"ss"];
-}
+//+ (NSArray *)dynamicPropertyKeys{
+//    return @[@"name",@"ss",@"age"];
+//}
 @end

@@ -9,6 +9,8 @@
 #import "PingDynamicSynthesizer.h"
 #import "PingWeakHelper.h"
 
+#define PingDynamicSynthesizerInquiry @"PingDynamicSynthesizerInquiry"
+
 #define NONATOMIC   @"N"
 #define ATOMIC      @""
 #define STRONG      @"&"
@@ -21,6 +23,8 @@
 
 #define SET_METHOD_TYPE "v@:@"
 #define GET_METHOD_TYPE "@@:"
+
+/*******************************************Macro************************************************/
 
 @implementation PingDynamicSynthesizer
 
@@ -193,17 +197,23 @@ static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK(id _self,
     return helper.target;
 }
 
+
 __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
-    unsigned int class_count = 0;
-    Class *class_list = objc_copyClassList(&class_count);
-    unsigned int i = 0;
-    while (i < class_count) {
-        Class cls = class_list[i];
-        if (class_conformsToProtocol(cls, @protocol(DynamicPropertyProtocol))) {
-            [PingDynamicSynthesizer ping_dynamicProperty:cls];
+    NSDictionary *info = [NSBundle mainBundle].infoDictionary;
+    BOOL is_auto = [info[PingDynamicSynthesizerInquiry] boolValue];
+    if (is_auto) {
+        unsigned int class_count = 0;
+        Class *class_list = objc_copyClassList(&class_count);
+        unsigned int i = 0;
+        while (i < class_count) {
+            Class cls = class_list[i];
+            if (class_conformsToProtocol(cls, @protocol(DynamicPropertyProtocol))) {
+                [PingDynamicSynthesizer ping_dynamicProperty:cls];
+            }
+            i++;
         }
-        i++;
     }
+    
 }
 
 /**
@@ -212,7 +222,7 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
  @param cls the class need synthesize methods
  */
 + (void)ping_dynamicProperty:(nonnull Class<DynamicPropertyProtocol>)cls{
-        
+    NSParameterAssert(cls);
     CFArrayCallBacks callbacks = {0, NULL, NULL, CFCopyDescription, CFEqual};
     CFMutableArrayRef raw_ptys = CFArrayCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     if (!class_respondsToSelector(cls, @selector(dynamicPropertyKeys))) {
