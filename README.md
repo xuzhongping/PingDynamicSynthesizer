@@ -46,9 +46,9 @@ Auto synthesize setter getter methods for category
 
 不再需要手动调用方法进行合成了，只需要让category遵守 DynamicPropertyProtocol 协议，就可实现自动合成。
 
-* 0.2.1  (千万要记住设置字段，否则可能会导致无法自动合成)
+* 0.2.1  **(千万要记住设置字段，否则可能会导致无法自动合成)**
 
-防止在大型项目中因为category的过多并合成而导致启动变慢，增加可选为手动合成，在项目中的 info.plist中增加 ==PingDynamicSynthesizerInquiry==  字段，为==BOOL==类型，当设为YES时表示自动合成，当设为NO时表示不自动而需要手动在每个地方合成。
+防止在大型项目中因为category的过多并合成而导致启动变慢，增加可选为手动合成，在项目中的 info.plist中增加 **PingDynamicSynthesizerInquiry**  字段，为**BOOL**类型，当设为YES时表示自动合成，当设为NO时表示不自动而需要手动在每个地方合成。
 
 ## 使用方式
 1. 按照规格在category.h文件中书写property
