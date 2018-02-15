@@ -23,7 +23,9 @@
     
     [p setSs:[UIView new]];
     
-    NSLog(@"%@ %@",p.ss,p.name);
+    [p setSafe:@"safe"];
+    
+    NSLog(@"%@ %@ %@",p.ss,p.name,p.safe);
 }
 
 

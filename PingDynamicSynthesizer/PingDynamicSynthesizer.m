@@ -11,11 +11,13 @@
 
 #define PingDynamicSynthesizerInquiry @"PingDynamicSynthesizerInquiry"
 
-#define NONATOMIC   @"N"
-#define ATOMIC      @""
-#define STRONG      @"&"
-#define COPY        @"C"
-#define WEAK        @"W"
+
+#define ping_nonatomic   @"N"
+#define ping_atomic      @""
+#define ping_strong      @"&"
+#define ping_copy        @"C"
+#define ping_weak        @"W"
+#define ping_unsafe_unretained    @""
 
 #define OBJC_ASSOCIATION_WEAK_NONATOMIC 01555
 #define OBJC_ASSOCIATION_WEAK           01556
@@ -44,9 +46,10 @@ static inline SEL _ping_synthesize_getSel(NSString *name){
 }
 
 static inline uintptr_t _ping_analyze_policy(NSString *pty_att){
+    NSLog(@"%@\n",pty_att);
     NSInteger att_length = pty_att.length;
-    objc_AssociationPolicy policy = OBJC_ASSOCIATION_UNDEFINE;
-    if ([[pty_att substringFromIndex:(att_length - 1)] isEqualToString:NONATOMIC]) {
+    objc_AssociationPolicy policy = OBJC_ASSOCIATION_ASSIGN;
+    if ([[pty_att substringFromIndex:(att_length - 1)] isEqualToString:ping_nonatomic]) {
         if ([pty_att rangeOfString:@"&,"].length) {
             policy = OBJC_ASSOCIATION_RETAIN_NONATOMIC;
         }else if ([pty_att rangeOfString:@"C,"].length){
@@ -55,11 +58,11 @@ static inline uintptr_t _ping_analyze_policy(NSString *pty_att){
             policy = OBJC_ASSOCIATION_WEAK_NONATOMIC;
         }
     }else{
-        if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:STRONG]) {
+        if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:ping_strong]) {
             policy = OBJC_ASSOCIATION_RETAIN;
-        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:COPY]){
+        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:ping_copy]){
             policy = OBJC_ASSOCIATION_COPY;
-        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:WEAK]){
+        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:ping_weak]){
             policy = OBJC_ASSOCIATION_WEAK;
         }
     }
@@ -127,6 +130,12 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
             class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, GET_METHOD_TYPE);
         }
             break;
+        case OBJC_ASSOCIATION_ASSIGN:
+        {
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN, SET_METHOD_TYPE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
+        }
+            break;
             
         default:
         {
@@ -155,6 +164,8 @@ static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self
     objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+
+
 static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN(id _self,
                                                                 SEL _cmd,
                                                                 id value){
@@ -172,6 +183,12 @@ static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK(id _self,
                                                               SEL _cmd,
                                                               id value){
     objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN);
+}
+
+static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN(id _self,
+                                                                SEL _cmd,
+                                                                id value){
+    objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), value, OBJC_ASSOCIATION_ASSIGN);
 }
 
 
@@ -269,11 +286,11 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
         SEL setSel = _ping_synthesize_setsel(name);
         SEL getSel = _ping_synthesize_getSel(name);
         uintptr_t policy = _ping_analyze_policy(att);
-        if (policy == OBJC_ASSOCIATION_UNDEFINE) {
-            NSString *description = [NSString stringWithFormat:@"%@'%@' nonsupport dynamic synthesize property",NSStringFromClass(cls),name];
-            NSAssert(false, description);
-            continue;
-        }
+//        if (policy == OBJC_ASSOCIATION_UNDEFINE) {
+//            NSString *description = [NSString stringWithFormat:@"%@'%@' nonsupport dynamic synthesize property",NSStringFromClass(cls),name];
+//            NSAssert(false, description);
+//            continue;
+//        }
         _ping_dispense_setget_implementation(policy, setSel, getSel, cls);
     }
 }

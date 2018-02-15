@@ -12,15 +12,6 @@
 @interface Person (Extra)<DynamicPropertyProtocol>
 @property (nonatomic,   copy) NSString  *name;
 @property (nonatomic, strong) NSObject  *ss;
-@property (nonatomic,unsafe_unretained)id safe;
-@property (nonatomic,assign)id ID;
-@property (nonatomic,assign)CGFloat fnumber;
-@property (nonatomic,assign)CGSize size;
-@property (nonatomic,assign)CGRect frame;
-@property (nonatomic,assign)CGPoint point;
-@property (nonatomic,assign)double dnumber;
-@property (nonatomic,assign)int inumber;
-@property (nonatomic,assign)NSInteger interNumber;
-@property (nonatomic,assign)long longNumber;
-@property (nonatomic,assign)long long llongNumber;
+@property (unsafe_unretained)id safe;
+
 @end
