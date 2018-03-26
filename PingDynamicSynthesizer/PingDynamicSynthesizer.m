@@ -23,8 +23,9 @@
 #define OBJC_ASSOCIATION_WEAK           01556
 #define OBJC_ASSOCIATION_UNDEFINE       01557
 
-#define SET_METHOD_TYPE "v@:@"
-#define GET_METHOD_TYPE "@@:"
+
+#define SET_METHOD_ENCODE "v@:@"
+#define GET_METHOD_ENCODE "@@:"
 
 /*******************************************Macro************************************************/
 
@@ -46,7 +47,7 @@ static inline SEL _ping_synthesize_getSel(NSString *name){
 }
 
 static inline uintptr_t _ping_analyze_policy(NSString *pty_att){
-    NSLog(@"%@\n",pty_att);
+//    NSLog(@"%@\n",pty_att);
     NSInteger att_length = pty_att.length;
     objc_AssociationPolicy policy = OBJC_ASSOCIATION_ASSIGN;
     if ([[pty_att substringFromIndex:(att_length - 1)] isEqualToString:ping_nonatomic]) {
@@ -96,44 +97,44 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
     switch (policy) {
         case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK,GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK,GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_COPY_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_WEAK_NONATOMIC:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_RETAIN:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_COPY:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_WEAK:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, GET_METHOD_ENCODE);
         }
             break;
         case OBJC_ASSOCIATION_ASSIGN:
         {
-            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN, SET_METHOD_TYPE);
-            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_TYPE);
+            class_addMethod(class_p, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN, SET_METHOD_ENCODE);
+            class_addMethod(class_p, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, GET_METHOD_ENCODE);
         }
             break;
             
@@ -286,13 +287,9 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
         SEL setSel = _ping_synthesize_setsel(name);
         SEL getSel = _ping_synthesize_getSel(name);
         uintptr_t policy = _ping_analyze_policy(att);
-//        if (policy == OBJC_ASSOCIATION_UNDEFINE) {
-//            NSString *description = [NSString stringWithFormat:@"%@'%@' nonsupport dynamic synthesize property",NSStringFromClass(cls),name];
-//            NSAssert(false, description);
-//            continue;
-//        }
         _ping_dispense_setget_implementation(policy, setSel, getSel, cls);
     }
+    CFRelease(raw_ptys);
 }
 
 @end
