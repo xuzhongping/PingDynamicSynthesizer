@@ -9,14 +9,20 @@
 #import "PingWeakHelper.h"
 
 @interface PingWeakHelper()
-@property (nonatomic, weak,readwrite) id target;
+@property (nonatomic, weak) id target;
 @end
 
 @implementation PingWeakHelper
-+ (instancetype)weakHelper:(id)target{
+
++ (instancetype)weakTarget:(id)target{
     PingWeakHelper *helper = [[PingWeakHelper alloc]init];
     [helper setTarget:target];
     return helper;
 }
 
+#pragma mark - getters and setters
+
+- (instancetype)getTarget{
+    return _target;
+}
 @end

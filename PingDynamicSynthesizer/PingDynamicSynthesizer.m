@@ -162,7 +162,7 @@ static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC(id _self
 static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC(id _self,
                                                                         SEL _cmd,
                                                                         id value){
-    objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakTarget:value], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
@@ -183,7 +183,7 @@ static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY(id _self,
 static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK(id _self,
                                                               SEL _cmd,
                                                               id value){
-    objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakHelper:value], OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakTarget:value], OBJC_ASSOCIATION_RETAIN);
 }
 
 static void _ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN(id _self,
@@ -208,11 +208,11 @@ static id _ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK(id _self,
         return nil;
     }
     
-    if (helper.target == nil) {
+    if ([helper getTarget] == nil) {
         objc_setAssociatedObject(_self, _ping_get_associated_objectKey(_cmd), nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return nil;
     }
-    return helper.target;
+    return [helper getTarget];
 }
 
 
