@@ -360,7 +360,7 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
             class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ullong), _ping_set_method_encode(_encode));
         }
         class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ullong), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(void *)[0] && _encode[1] == @encode(void *)[1]){
+    }else if (_encode[0] == @encode(void *)[0] && _encode[1] == 'v'){
         if (_encode[1] == 'N') {
             class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ptr), _ping_set_method_encode(_encode));
         }else{
