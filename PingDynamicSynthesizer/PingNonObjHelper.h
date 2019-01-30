@@ -22,10 +22,10 @@ typedef char * _ping_str;
 typedef void * _ping_ptr;
 
 
-
 @interface PingNonObjHelper : NSObject
 {
     @public
+    ping_variable(BOOL);
     ping_variable(char);
     ping_variable(short);
     ping_variable(int);

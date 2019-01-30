@@ -201,11 +201,13 @@ static inline void * _ping_get_associated_objectKey(SEL setSel){
 static void _ping_dispense_setget_implementation(uintptr_t policy,
                                                  SEL setSel,SEL getSel,
                                                  __nonnull Class class,char *_encode){
+    
 #define _PING_DYNAMIC_NONOBJ_SETTER_IMP(policy,type)   \
 (IMP)_ping_dynamic_setter_method_non_obj_##policy##_##type
 
 #define _PING_DYNAMIC_NONOBJ_GETTER_IMP(type)   \
 (IMP)_ping_dynamic_getter_method_non_obj_##type
+    
     _encode ++;
     if (_encode[0] == '@') {
         switch (policy) {
@@ -259,7 +261,14 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
                 break;
         }
     }
-
+    else if (_encode[0] == @encode(BOOL)[0]){
+        if (_encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,BOOL), _ping_set_method_encode(_encode));
+        }else{
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,BOOL), _ping_set_method_encode(_encode));
+        }
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(BOOL), _ping_get_method_encode(_encode));
+    }
     else if (_encode[0] == @encode(char)[0]){
         if (_encode[1] == 'N') {
             class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,char), _ping_set_method_encode(_encode));
@@ -374,6 +383,7 @@ _PING_DYNAMIC_SETTER_METHOD(OBJC_ASSOCIATION_ASSIGN)
 _PING_DYNAMIC_SETTER_WEAK_METHOD(OBJC_ASSOCIATION_WEAK_NONATOMIC)
 _PING_DYNAMIC_SETTER_WEAK_METHOD(OBJC_ASSOCIATION_WEAK)
 
+_PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, BOOL)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, char)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, short)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, int)
@@ -390,6 +400,7 @@ _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, _ping_ull
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, _ping_str)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN_NONATOMIC, _ping_ptr)
 
+_PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN, BOOL)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN, char)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN, short)
 _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN, int)
@@ -414,6 +425,7 @@ _PING_DYNAMIC_NON_OBJ_SETTER_METHOD(OBJC_ASSOCIATION_RETAIN, _ping_ptr)
 _PING_DYNAMIC_GETTER_METHOD
 _PING_DYNAMIC_GETTER_WEAK_METHOD
 
+_PING_DYNAMIC_NON_OBJ_GETTER_METHOD(BOOL)
 _PING_DYNAMIC_NON_OBJ_GETTER_METHOD(char)
 _PING_DYNAMIC_NON_OBJ_GETTER_METHOD(short)
 _PING_DYNAMIC_NON_OBJ_GETTER_METHOD(int)
