@@ -12,7 +12,7 @@
 @interface Person (Extra)<DynamicPropertyProtocol>
 @property (nonatomic,   copy) NSString  *name;
 @property (atomic, strong) NSObject  *ss;
-@property (nonatomic, assign) NSInteger abc;
-
-
+@property (nonatomic, assign) int num;
+@property (nonatomic, assign) float fl;
+@property (nonatomic, assign) NSInteger longNum;
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED01149522019DB600D6B20B /* PingNonObjHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ED01149422019DB600D6B20B /* PingNonObjHelper.m */; };
 		ED2C669020302FDF00FFAD55 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C668F20302FDF00FFAD55 /* Student.m */; };
 		ED2C66932030300600FFAD55 /* Student+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C66922030300600FFAD55 /* Student+Extra.m */; };
 		EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119F81FDCE69300ACDE05 /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED01149322019DB600D6B20B /* PingNonObjHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingNonObjHelper.h; sourceTree = "<group>"; };
+		ED01149422019DB600D6B20B /* PingNonObjHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingNonObjHelper.m; sourceTree = "<group>"; };
 		ED2C668E20302FDF00FFAD55 /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		ED2C668F20302FDF00FFAD55 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		ED2C66912030300600FFAD55 /* Student+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Student+Extra.h"; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				EDD11A301FDCE72000ACDE05 /* PingDynamicSynthesizer.m */,
 				EDD11A321FDCE72000ACDE05 /* PingWeakHelper.h */,
 				EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */,
+				ED01149322019DB600D6B20B /* PingNonObjHelper.h */,
+				ED01149422019DB600D6B20B /* PingNonObjHelper.m */,
 			);
 			path = PingDynamicSynthesizer;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */,
+				ED01149522019DB600D6B20B /* PingNonObjHelper.m in Sources */,
 				EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */,
 				EDD11A071FDCE69300ACDE05 /* main.m in Sources */,
 				ED2C669020302FDF00FFAD55 /* Student.m in Sources */,
