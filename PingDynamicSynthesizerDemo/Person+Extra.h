@@ -11,7 +11,8 @@
 
 @interface Person (Extra)<DynamicPropertyProtocol>
 @property (nonatomic,   copy) NSString  *name;
-@property (nonatomic, strong) NSObject  *ss;
-@property (unsafe_unretained)id safe;
+@property (atomic, strong) NSObject  *ss;
+@property (nonatomic, assign) NSInteger abc;
+
 
 @end
