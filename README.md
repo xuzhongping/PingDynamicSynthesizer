@@ -47,7 +47,7 @@ Auto synthesize setter getter methods for category
 注意点: 
 * category中请严格按照 @property (nonatomic, copy) type *name 规格书写。
 * 目前支持对象类型和大部分值类型属性合成，对于不支持的数据类型可用 NSValue 代替使用。
-* 在多个category环境下，此工具会自动检测出所有的category和类本身所拥有的所有属性是否需要合成，不包括手动实现过setter或getter的属性；所以如果你想更合理的控制需要合成的属性，请实现dynamicProperty方法来返回需要合成的key数组。
+* 在多个category环境下，此工具会自动检测出所有的category和类本身所拥有的所有属性是否需要合成，不包括手动实现过setter或getter的属性；所以如果你想更合理的控制需要合成的属性，请实现dynamicProperty方法来返回需要合成的key数组。
 
 
 
@@ -62,7 +62,7 @@ Auto synthesize setter getter methods for category
 
 * 0.1.2 
 
-上个版本的weak实现策略是我的失误写错了，这个版本修复了weak的策略，采用 lazy set to nil方案。
+上个版本的weak实现策略是我的失误写错了，这个版本修复了weak的策略。
 
 * 0.2.0
 
@@ -78,7 +78,7 @@ Auto synthesize setter getter methods for category
 
 * 0.3.0
 
-支持了大部分的值类型，不再只支持对象类型
+支持了大部分的值类型，不再只支持对象类型
 
 ## 使用方式
 1. 按照规格在category.h文件中书写property
