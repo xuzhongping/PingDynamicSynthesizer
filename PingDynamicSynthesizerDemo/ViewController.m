@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Person+Extra.h"
+#import "PingNonObjHelper.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,6 @@
     p.longNum = 20;
 
     NSLog(@"%d %f %ld",p.num,p.fl,p.longNum);
-    
 }
 
 

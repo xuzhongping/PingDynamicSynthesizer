@@ -25,22 +25,24 @@ typedef void * _ping_ptr;
 @interface PingNonObjHelper : NSObject
 {
     @public
-    ping_variable(BOOL);
-    ping_variable(char);
-    ping_variable(short);
-    ping_variable(int);
-    ping_variable(long);
-    ping_variable(float);
-    ping_variable(double);
-    ping_variable(_ping_llong);
-    
-    ping_variable(_ping_uchar);
-    ping_variable(_ping_ushort);
-    ping_variable(_ping_uint);
-    ping_variable(_ping_ulong);
-    ping_variable(_ping_ullong);
-    ping_variable(_ping_str);
-    ping_variable(_ping_ptr);
+    union _var{
+        ping_variable(BOOL);
+        ping_variable(char);
+        ping_variable(short);
+        ping_variable(int);
+        ping_variable(long);
+        ping_variable(float);
+        ping_variable(double);
+        ping_variable(_ping_llong);
+        
+        ping_variable(_ping_uchar);
+        ping_variable(_ping_ushort);
+        ping_variable(_ping_uint);
+        ping_variable(_ping_ulong);
+        ping_variable(_ping_ullong);
+        ping_variable(_ping_str);
+        ping_variable(_ping_ptr);
+    }_var;
 }
 @end
 

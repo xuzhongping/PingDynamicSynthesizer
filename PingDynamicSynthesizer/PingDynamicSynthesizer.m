@@ -27,8 +27,13 @@ return  objc_getAssociatedObject(_self, _cmd);  \
 static void _ping_dynamic_setter_method_##policy(id _self,   \
 SEL _cmd,   \
 id value){  \
+if (policy == OBJC_ASSOCIATION_WEAK){ \
 objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakTarget:value],   \
-policy);   \
+                         OBJC_ASSOCIATION_RETAIN);   \
+}else{  \
+objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), [PingWeakHelper weakTarget:value],   \
+                         OBJC_ASSOCIATION_RETAIN_NONATOMIC);   \
+}   \
 }
 
 #define _PING_DYNAMIC_GETTER_WEAK_METHOD    \
@@ -52,7 +57,7 @@ static void _ping_dynamic_setter_method_non_obj_##policy##_##type(id _self,  \
 SEL _cmd, \
 type value){    \
 PingNonObjHelper *nonObj = [[PingNonObjHelper alloc]init];  \
-nonObj->_##type##V = value;   \
+nonObj->_var._##type##V = value;   \
 objc_setAssociatedObject(_self,  _ping_get_associated_objectKey(_cmd), nonObj,  \
 policy);  \
 }
@@ -65,7 +70,7 @@ return (type)0; \
 }   \
 PingNonObjHelper *nonObj = (PingNonObjHelper *)objc_getAssociatedObject(_self, _cmd);   \
 \
-return nonObj->_##type##V;  \
+return nonObj->_var._##type##V;  \
 }
 
 
