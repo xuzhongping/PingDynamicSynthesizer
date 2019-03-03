@@ -5,6 +5,8 @@ Auto synthesize setter getter methods for category
 [![Pod License](http://img.shields.io/cocoapods/l/PingDynamicSynthesizer.svg?style=flat)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![iOS 6.0+](https://img.shields.io/badge/iOS-6.0%2B-blue.svg)
+![](https://img.shields.io/badge/language-objc-orange.svg)
+![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
 自动为你的Category中的property合成属性(setter gettter)
 实现思路可参考本文:[老生常谈category增加属性的几种操作](https://www.junghsu.top)

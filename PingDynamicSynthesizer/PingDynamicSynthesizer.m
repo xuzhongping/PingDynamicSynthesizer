@@ -481,9 +481,7 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
             const char  *_att =  property_getAttributes(pty);
             if (_att[0] != 'T' || _encodeMap[_att[1] == 0]) {continue;}
             // 指针类型只支持void *
-            if (_att[1] == '^' && _att[2] != 'v') {
-                continue;
-            }
+            if (_att[1] == '^' && _att[2] != 'v') {continue;}
             
             const char  *_name = property_getName(pty);
             NSString *name = [NSString stringWithCString:_name encoding:NSUTF8StringEncoding];
@@ -509,9 +507,8 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
             const char  *_att = property_getName(pty);
             if (_att[0] != 'T' || _encodeMap[_att[1] == 0]) {continue;}
             // 指针类型只支持void *
-            if (_att[1] == '^' && _att[2] != 'v') {
-                continue;
-            }
+            if (_att[1] == '^' && _att[2] != 'v') {continue;}
+            
             NSString *ptyName = [NSString stringWithCString:property_getName(pty) encoding:NSUTF8StringEncoding];
             NSString *att = [NSString stringWithCString:_att encoding:NSUTF8StringEncoding];
             for (NSString *raw_ptyName in rawPropertys) {
