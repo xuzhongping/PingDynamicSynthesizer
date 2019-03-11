@@ -9,7 +9,7 @@ Auto synthesize setter getter methods for category
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
 自动为你的Category中的property合成属性(setter gettter)
-实现思路可参考本文:[老生常谈category增加属性的几种操作](https://www.junghsu.cn)
+实现思路可参考本文:[老生常谈category增加属性的几种操作](http://www.junghsu.cn)
 
 ## 功能
 自动为你在category中写的property完成真正的属性合成。
