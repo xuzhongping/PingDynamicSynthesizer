@@ -495,6 +495,7 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
                 _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)_att);
             }
         }
+        free(ptys);
     }else{
         NSArray *rawPropertys = [cls dynamicPropertyKeys];
         if (!rawPropertys || rawPropertys.count == 0) {
@@ -521,6 +522,7 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
                 }
             }
         }
+        free(ptys);
     }
 }
 
