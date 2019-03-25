@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Fizz (Ex1)<DynamicPropertyProtocol>
 
-
+@property (nonatomic, strong) Class         classObj;
 @property (nonatomic, strong) NSObject      *strongObj;
 @property (nonatomic,   weak) NSObject      *weakObj;
 @property (nonatomic, assign) NSObject      *assignObj;
@@ -46,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) unsigned long long udlongValue;
 @property (nonatomic, assign) char   *cStrValue;
 @property (nonatomic, assign) void  *voidPValue;
-@property (nonatomic, strong) Class  classObj;
 @end
 
 NS_ASSUME_NONNULL_END

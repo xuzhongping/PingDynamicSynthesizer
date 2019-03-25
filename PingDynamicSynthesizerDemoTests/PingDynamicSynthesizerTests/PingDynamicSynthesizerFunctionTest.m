@@ -34,6 +34,13 @@
     }];
 }
 
+- (void)testPing_dynamicProperty_nonatomicStrongClass{
+    [PingDynamicSynthesizer ping_dynamicProperty:[Fizz class]];
+    Fizz *f = [Fizz new];
+    f.classObj = [Fizz class];
+    XCTAssertEqual(f.classObj, [Fizz class],@"err");
+}
+
 
 - (void)testPing_dynamicProperty_nonatomicStrong{
     [PingDynamicSynthesizer ping_dynamicProperty:[Fizz class]];
@@ -234,9 +241,9 @@
     XCTAssertEqual(f.voidPValue, value);
 }
 
-- (void)testPing_dynamicProperty_pointValue{
-
-    
-}
+//- (void)testPing_dynamicProperty_pointValue{
+//
+//
+//}
 
 @end

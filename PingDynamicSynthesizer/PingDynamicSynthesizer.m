@@ -81,13 +81,13 @@ return nonObj->_var._##type##V;  \
 #define PingDynamicSynthesizerInquiry @"PingDynamicSynthesizerInquiry"
 
 // type encode
-#define PING_NONATOMIC_ENCODE   @"N"
-#define PING_ATOMIC_ENCODE      @""
-#define PING_STRONG_ENCODE      @"&"
-#define PING_COPY_ENCODE        @"C"
-#define PING_WEAK_ENCODE        @"W"
-#define PING_DYNAMIC_ENCODE     @"D"
-#define PING_UNSAFE_UNRETAIN_ENCODE    @""
+#define PING_NONATOMICencode   @"N"
+#define PING_ATOMICencode      @""
+#define PING_STRONGencode      @"&"
+#define PING_COPYencode        @"C"
+#define PING_WEAKencode        @"W"
+#define PING_DYNAMICencode     @"D"
+#define PING_UNSAFE_UNRETAINencode    @""
 
 
 // define policy magic
@@ -96,8 +96,8 @@ return nonObj->_var._##type##V;  \
 #define OBJC_ASSOCIATION_UNDEFINE       0x615
 
 // obj method encode
-#define SET_METHOD_OBJ_ENCODE "v@:@"
-#define GET_METHOD_OBJ_ENCODE "@@:"
+#define SET_METHOD_OBJencode "v@:@"
+#define GET_METHOD_OBJencode "@@:"
 
 
 
@@ -105,59 +105,60 @@ return nonObj->_var._##type##V;  \
 
 @implementation PingDynamicSynthesizer
 
-static char _encodeMap[128];
+static char encodeMap[128];
 
 // static inline methods
-static void _ping_create_encode_map(){
-    _encodeMap[(uint8_t)*@encode(BOOL)] = 1;
-    _encodeMap[(uint8_t)*@encode(char)] = 1;
-    _encodeMap[(uint8_t)*@encode(short)] = 1;
-    _encodeMap[(uint8_t)*@encode(int)] = 1;
-    _encodeMap[(uint8_t)*@encode(long)] = 1;
-    _encodeMap[(uint8_t)*@encode(long long)] = 1;
-    _encodeMap[(uint8_t)*@encode(float)] = 1;
-    _encodeMap[(uint8_t)*@encode(double)] = 1;
-    _encodeMap[(uint8_t)*@encode(unsigned char)] = 1;
-    _encodeMap[(uint8_t)*@encode(unsigned short)] = 1;
-    _encodeMap[(uint8_t)*@encode(unsigned int)] = 1;
-    _encodeMap[(uint8_t)*@encode(unsigned long)] = 1;
-    _encodeMap[(uint8_t)*@encode(unsigned long long)] = 1;
-    _encodeMap[(uint8_t)*@encode(void *)] = 1;
-    _encodeMap[(uint8_t)*@encode(char *)] = 1;
-    _encodeMap['@'] = 1;
+static void _ping_createencode_map(){
+    encodeMap[(uint8_t)*@encode(BOOL)] = 1;
+    encodeMap[(uint8_t)*@encode(char)] = 1;
+    encodeMap[(uint8_t)*@encode(short)] = 1;
+    encodeMap[(uint8_t)*@encode(int)] = 1;
+    encodeMap[(uint8_t)*@encode(long)] = 1;
+    encodeMap[(uint8_t)*@encode(long long)] = 1;
+    encodeMap[(uint8_t)*@encode(float)] = 1;
+    encodeMap[(uint8_t)*@encode(double)] = 1;
+    encodeMap[(uint8_t)*@encode(unsigned char)] = 1;
+    encodeMap[(uint8_t)*@encode(unsigned short)] = 1;
+    encodeMap[(uint8_t)*@encode(unsigned int)] = 1;
+    encodeMap[(uint8_t)*@encode(unsigned long)] = 1;
+    encodeMap[(uint8_t)*@encode(unsigned long long)] = 1;
+    encodeMap[(uint8_t)*@encode(void *)] = 1;
+    encodeMap[(uint8_t)*@encode(char *)] = 1;
+    encodeMap['@'] = 1;
+    encodeMap[(uint8_t)*@encode(Class)] = 1;
 }
 
 static inline char * _ping_set_method_encode(char *code){
-    char *_set_method_encode = NULL;
+    char *set_methodencode = NULL;
     if (code[0] == '^' && code[1] == 'v') {
-        char _encode[5] = "v@:^v";
-        _set_method_encode = _encode;
+        char newencode[5] = "v@:^v";
+        set_methodencode = newencode;
     }else{
-        char _encode[4] = "v@:*";
-        _encode[3] = code[0];
-        _set_method_encode = _encode;
+        char newencode[4] = "v@:*";
+        newencode[3] = code[0];
+        set_methodencode = newencode;
     }
-    return _set_method_encode;
+    return set_methodencode;
 }
 
 static inline char * _ping_get_method_encode(char *code){
-    char *_get_method_encode = NULL;
+    char *get_methodencode = NULL;
     if (code[0] == '^' && code[1] == 'v') {
-        char _encode[4] = "^v@:";
-        _get_method_encode = _encode;
+        char new_ncode[4] = "^v@:";
+        get_methodencode = new_ncode;
     }else{
-        char _encode[3] = "v@:";
-        _encode[0] = code[0];
-        _get_method_encode = _encode;
+        char newencode[3] = "v@:";
+        newencode[0] = code[0];
+        get_methodencode = newencode;
     }
-    return _get_method_encode;
+    return get_methodencode;
 }
 
 static inline SEL _ping_synthesize_setsel(NSString *name){
-    NSString *setFirstChar = [name substringToIndex:1];
-    setFirstChar = [setFirstChar uppercaseString];
-    NSString *setLastChars = [name substringFromIndex:1];
-    NSString *selName = [NSString stringWithFormat:@"set%@%@:",setFirstChar,setLastChars];
+    NSString *prefixStr = [name substringToIndex:1];
+    prefixStr = [prefixStr uppercaseString];
+    NSString *suffixStr = [name substringFromIndex:1];
+    NSString *selName = [NSString stringWithFormat:@"set%@%@:",prefixStr,suffixStr];
     return NSSelectorFromString(selName);
 }
 
@@ -165,23 +166,23 @@ static inline SEL _ping_synthesize_getSel(NSString *name){
     return NSSelectorFromString(name);
 }
 
-static inline uintptr_t _ping_analyze_policy(NSString *pty_att){
-    NSInteger att_length = pty_att.length;
+static inline uintptr_t _ping_analyze_policy(NSString *attr){
+    NSInteger attrLen = attr.length;
     objc_AssociationPolicy policy = OBJC_ASSOCIATION_ASSIGN;
-    if ([[pty_att substringFromIndex:(att_length - 1)] isEqualToString:PING_NONATOMIC_ENCODE]) {
-        if ([pty_att rangeOfString:@"&,"].length) {
+    if ([[attr substringFromIndex:(attrLen - 1)] isEqualToString:PING_NONATOMICencode]) {
+        if ([attr rangeOfString:@"&,"].length) {
             policy = OBJC_ASSOCIATION_RETAIN_NONATOMIC;
-        }else if ([pty_att rangeOfString:@"C,"].length){
+        }else if ([attr rangeOfString:@"C,"].length){
             policy = OBJC_ASSOCIATION_COPY_NONATOMIC;
-        }else if ([pty_att rangeOfString:@"W,"].length){
+        }else if ([attr rangeOfString:@"W,"].length){
             policy = OBJC_ASSOCIATION_WEAK_NONATOMIC;
         }
     }else{
-        if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:PING_STRONG_ENCODE]) {
+        if ([[attr substringFromIndex:attrLen - 1] isEqualToString:PING_STRONGencode]) {
             policy = OBJC_ASSOCIATION_RETAIN;
-        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:PING_COPY_ENCODE]){
+        }else if ([[attr substringFromIndex:attrLen - 1] isEqualToString:PING_COPYencode]){
             policy = OBJC_ASSOCIATION_COPY;
-        }else if ([[pty_att substringFromIndex:att_length - 1] isEqualToString:PING_WEAK_ENCODE]){
+        }else if ([[attr substringFromIndex:attrLen - 1] isEqualToString:PING_WEAKencode]){
             policy = OBJC_ASSOCIATION_WEAK;
         }
     }
@@ -199,11 +200,11 @@ static inline void * _ping_get_associated_objectKey(SEL setSel){
         return (void *)NSSelectorFromString(setSelName);
     }
     setSelName = [setSelName substringFromIndex:3];
-    NSString  *firstGetSelName = [setSelName substringToIndex:1];
-    firstGetSelName = [firstGetSelName lowercaseString];
-    NSString *lastGetSelName = [setSelName substringFromIndex:1];
-    lastGetSelName = [lastGetSelName stringByReplacingOccurrencesOfString:@":" withString:@""];
-    NSString *getSelName = [NSString stringWithFormat:@"%@%@",firstGetSelName,lastGetSelName];
+    NSString  *prefixStr = [setSelName substringToIndex:1];
+    prefixStr = [prefixStr lowercaseString];
+    NSString *suffixStr = [setSelName substringFromIndex:1];
+    suffixStr = [suffixStr stringByReplacingOccurrencesOfString:@":" withString:@""];
+    NSString *getSelName = [NSString stringWithFormat:@"%@%@",prefixStr,suffixStr];
     return (void *)NSSelectorFromString(getSelName);
 }
 
@@ -211,7 +212,7 @@ static inline void * _ping_get_associated_objectKey(SEL setSel){
 
 static void _ping_dispense_setget_implementation(uintptr_t policy,
                                                  SEL setSel,SEL getSel,
-                                                 __nonnull Class class,char *_encode){
+                                                 __nonnull Class class,char *encode){
     
 #define _PING_DYNAMIC_NONOBJ_SETTER_IMP(policy,type)   \
 (IMP)_ping_dynamic_setter_method_non_obj_##policy##_##type
@@ -219,49 +220,49 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
 #define _PING_DYNAMIC_NONOBJ_GETTER_IMP(type)   \
 (IMP)_ping_dynamic_getter_method_non_obj_##type
     
-    _encode ++;
-    if (_encode[0] == '@') {
+    encode ++;
+    if (encode[0] == '@' || encode[0] == '#') {
         switch (policy) {
             case OBJC_ASSOCIATION_RETAIN_NONATOMIC:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK,_ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN_NONATOMIC, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK,_ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_COPY_NONATOMIC:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY_NONATOMIC, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_WEAK_NONATOMIC:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK_NONATOMIC, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, _ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_RETAIN:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_RETAIN, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_COPY:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_COPY, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_WEAK:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_WEAK, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_WEAK, _ping_get_method_encode(encode));
             }
                 break;
             case OBJC_ASSOCIATION_ASSIGN:
             {
-                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN, _ping_set_method_encode(_encode));
-                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(_encode));
+                class_addMethod(class, setSel, (IMP)_ping_dynamic_setter_method_OBJC_ASSOCIATION_ASSIGN, _ping_set_method_encode(encode));
+                class_addMethod(class, getSel, (IMP)_ping_dynamic_getter_method_OBJC_ASSOCIATION_AUTO_NOTWEAK, _ping_get_method_encode(encode));
             }
                 break;
                 
@@ -272,112 +273,112 @@ static void _ping_dispense_setget_implementation(uintptr_t policy,
                 break;
         }
     }
-    else if (_encode[0] == @encode(BOOL)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,BOOL), _ping_set_method_encode(_encode));
+    else if (encode[0] == @encode(BOOL)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,BOOL), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,BOOL), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,BOOL), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(BOOL), _ping_get_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(BOOL), _ping_get_method_encode(encode));
     }
-    else if (_encode[0] == @encode(char)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,char), _ping_set_method_encode(_encode));
+    else if (encode[0] == @encode(char)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,char), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,char), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,char), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(char), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(char *)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_str), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(char), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(char *)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_str), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_str), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_str), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_str), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(short)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,short), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_str), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(short)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,short), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,short), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,short), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(short), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(int)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,int), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(short), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(int)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,int), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,int), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,int), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(int), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(long)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,long), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(int), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(long)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,long), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,long), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,long), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(long), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(long long)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_llong), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(long), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(long long)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_llong), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_llong), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_llong), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_llong), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(float)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,float), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_llong), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(float)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,float), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,float), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,float), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(float), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(double)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,double), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(float), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(double)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,double), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,double), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,double), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(double), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(unsigned char)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_uchar), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(double), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(unsigned char)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_uchar), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_uchar), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_uchar), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_uchar), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(unsigned short)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ushort), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_uchar), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(unsigned short)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ushort), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ushort), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ushort), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ushort), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(unsigned int)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_uint), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ushort), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(unsigned int)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_uint), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_uint), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_uint), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_uint), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(unsigned long)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ulong), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_uint), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(unsigned long)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ulong), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ulong), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ulong), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ulong), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(unsigned long long)[0]){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ullong), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ulong), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(unsigned long long)[0]){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ullong), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ullong), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ullong), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ullong), _ping_get_method_encode(_encode));
-    }else if (_encode[0] == @encode(void *)[0] && _encode[1] == 'v'){
-        if (_encode[1] == 'N') {
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ptr), _ping_set_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ullong), _ping_get_method_encode(encode));
+    }else if (encode[0] == @encode(void *)[0] && encode[1] == 'v'){
+        if (encode[1] == 'N') {
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN_NONATOMIC,_ping_ptr), _ping_set_method_encode(encode));
         }else{
-            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ptr), _ping_set_method_encode(_encode));
+            class_addMethod(class, setSel, _PING_DYNAMIC_NONOBJ_SETTER_IMP(OBJC_ASSOCIATION_RETAIN,_ping_ptr), _ping_set_method_encode(encode));
         }
-        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ptr), _ping_get_method_encode(_encode));
+        class_addMethod(class, getSel, _PING_DYNAMIC_NONOBJ_GETTER_IMP(_ping_ptr), _ping_get_method_encode(encode));
     }
 }
 
@@ -455,7 +456,7 @@ _PING_DYNAMIC_NON_OBJ_GETTER_METHOD(_ping_ptr)
 
 
 __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
-    _ping_create_encode_map();
+    _ping_createencode_map();
     NSDictionary *info = [NSBundle mainBundle].infoDictionary;
     BOOL is_auto = [info[PingDynamicSynthesizerInquiry] boolValue];
     if (is_auto) {
@@ -480,49 +481,59 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
 + (void)ping_dynamicProperty:(nonnull Class<DynamicPropertyProtocol>)cls{
     NSParameterAssert(cls);
     if (![cls respondsToSelector:@selector(dynamicPropertyKeys)]) {
-        unsigned int pty_count = 0;
-        objc_property_t *ptys =  class_copyPropertyList(cls, &pty_count);
-        for (int i = 0; i < pty_count; i++) {
-            objc_property_t pty = ptys[i];
-            const char  *_att =  property_getAttributes(pty);
-            if (_att[0] != 'T' || _encodeMap[_att[1]] == 0) {continue;}
+        unsigned int count = 0;
+        objc_property_t *propertys =  class_copyPropertyList(cls, &count);
+        for (int i = 0; i < count; i++) {
+            objc_property_t property = propertys[i];
+            const char  *attr =  property_getAttributes(property);
+            if (attr[0] != 'T' || encodeMap[attr[1]] == 0) {
+                continue;
+            }
             // 指针类型只支持void *
-            if (_att[1] == '^' && _att[2] != 'v') {continue;}
+            if (attr[1] == '^' && attr[2] != 'v') {
+                continue;
+            }
             
-            const char  *_name = property_getName(pty);
+            const char  *_name = property_getName(property);
             NSString *name = [NSString stringWithCString:_name encoding:NSUTF8StringEncoding];
-            NSString *att = [NSString stringWithCString:_att encoding:NSUTF8StringEncoding];
+            NSString *attrStr = [NSString stringWithCString:attr encoding:NSUTF8StringEncoding];
             SEL setSel = _ping_synthesize_setsel(name);
             SEL getSel = _ping_synthesize_getSel(name);
             Method setMethod = class_getInstanceMethod(cls, setSel);
             Method getMethod = class_getInstanceMethod(cls, getSel);
             if (!(setMethod || getMethod)) {
-                uintptr_t policy = _ping_analyze_policy(att);
-                _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)_att);
+                uintptr_t policy = _ping_analyze_policy(attrStr);
+                _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)attr);
             }
         }
-        free(ptys);
+        free(propertys);
     }else{
-        NSArray *rawPropertys = [cls dynamicPropertyKeys];
-        if (!rawPropertys || rawPropertys.count == 0) {
+        NSArray *propertys = [cls dynamicPropertyKeys];
+        if (!propertys || propertys.count == 0) {
             return;
         }
         
-        for (NSString *ptyName in rawPropertys) {
-            objc_property_t pty = class_getProperty(cls, [ptyName UTF8String]);
-            if (pty == NULL) {
+        for (NSString *propertyName in propertys) {
+            objc_property_t property = class_getProperty(cls, [propertyName UTF8String]);
+            if (property == NULL) {
                 continue;
             }
-            const char  *_att =  property_getAttributes(pty);
-            if (_att[0] != 'T' || _encodeMap[_att[1]] == 0) {continue;}
+            const char  *attr =  property_getAttributes(property);
+            if (attr[0] != 'T' || encodeMap[attr[1]] == 0) {
+                continue;
+                
+            }
             // 指针类型只支持void *
-            if (_att[1] == '^' && _att[2] != 'v') {continue;}
-            NSString *att = [NSString stringWithCString:_att encoding:NSUTF8StringEncoding];
-            if ([rawPropertys containsObject:ptyName]) {
-                SEL setSel = _ping_synthesize_setsel(ptyName);
-                SEL getSel = _ping_synthesize_getSel(ptyName);
-                uintptr_t policy = _ping_analyze_policy(att);
-                _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)_att);
+            if (attr[1] == '^' && attr[2] != 'v') {
+                continue;
+            }
+            
+            NSString *attrStr = [NSString stringWithCString:attr encoding:NSUTF8StringEncoding];
+            if ([propertys containsObject:propertyName]) {
+                SEL setSel = _ping_synthesize_setsel(propertyName);
+                SEL getSel = _ping_synthesize_getSel(propertyName);
+                uintptr_t policy = _ping_analyze_policy(attrStr);
+                _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)attr);
             }
         }
         

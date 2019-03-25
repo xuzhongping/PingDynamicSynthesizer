@@ -7,12 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Fizz+Ex1.h"
 
 @interface PingDynamicSynthesizerPrivateTest : XCTestCase
 
 @end
 
 @implementation PingDynamicSynthesizerPrivateTest
+
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,6 +32,9 @@
     }];
 }
 
+- (void)test_ping_set_method_encode{
+
+}
 
 
 @end
