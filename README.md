@@ -27,7 +27,8 @@ Auto synthesize setter getter methods for category
 
 支持的类型:
 
-- [x]  obj
+- [x]  NSObject
+- [x]  Class
 - [x]  BOOL
 - [x]  char
 - [x]  short
