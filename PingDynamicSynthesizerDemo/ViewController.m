@@ -19,13 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         
-    Person *p = [Person new];
-    
-    p.num = 5;
-    p.fl = 0.2;
-    p.longNum = 20;
-
-    NSLog(@"%d %f %ld",p.num,p.fl,p.longNum);
 }
 
 

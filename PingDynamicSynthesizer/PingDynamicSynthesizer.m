@@ -10,6 +10,10 @@
 #import "PingWeakHelper.h"
 #import "PingNonObjHelper.h"
 
+#if !__has_feature(objc_arc)
+#error
+#endif
+
 #define _PING_DYNAMIC_SETTER_METHOD(policy) \
 static void _ping_dynamic_setter_method_##policy(id _self, \
 SEL _cmd,   \
@@ -112,6 +116,7 @@ static void _ping_create_encode_map(){
     _encodeMap[(uint8_t)*@encode(long)] = 1;
     _encodeMap[(uint8_t)*@encode(long long)] = 1;
     _encodeMap[(uint8_t)*@encode(float)] = 1;
+    _encodeMap[(uint8_t)*@encode(double)] = 1;
     _encodeMap[(uint8_t)*@encode(unsigned char)] = 1;
     _encodeMap[(uint8_t)*@encode(unsigned short)] = 1;
     _encodeMap[(uint8_t)*@encode(unsigned int)] = 1;
@@ -119,6 +124,7 @@ static void _ping_create_encode_map(){
     _encodeMap[(uint8_t)*@encode(unsigned long long)] = 1;
     _encodeMap[(uint8_t)*@encode(void *)] = 1;
     _encodeMap[(uint8_t)*@encode(char *)] = 1;
+    _encodeMap['@'] = 1;
 }
 
 static inline char * _ping_set_method_encode(char *code){
@@ -473,13 +479,13 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
  */
 + (void)ping_dynamicProperty:(nonnull Class<DynamicPropertyProtocol>)cls{
     NSParameterAssert(cls);
-    if (!class_respondsToSelector(cls, @selector(dynamicPropertyKeys))) {
+    if (![cls respondsToSelector:@selector(dynamicPropertyKeys)]) {
         unsigned int pty_count = 0;
         objc_property_t *ptys =  class_copyPropertyList(cls, &pty_count);
         for (int i = 0; i < pty_count; i++) {
             objc_property_t pty = ptys[i];
             const char  *_att =  property_getAttributes(pty);
-            if (_att[0] != 'T' || _encodeMap[_att[1] == 0]) {continue;}
+            if (_att[0] != 'T' || _encodeMap[_att[1]] == 0) {continue;}
             // 指针类型只支持void *
             if (_att[1] == '^' && _att[2] != 'v') {continue;}
             
@@ -501,28 +507,25 @@ __attribute__((constructor)) static void _ping_auto_synthesize_entry(){
         if (!rawPropertys || rawPropertys.count == 0) {
             return;
         }
-        unsigned int pty_count = 0;
-        objc_property_t *ptys = class_copyPropertyList(cls, &pty_count);
-        for (int i = 0; i < pty_count; i++) {
-            objc_property_t pty = ptys[i];
-            const char  *_att = property_getName(pty);
-            if (_att[0] != 'T' || _encodeMap[_att[1] == 0]) {continue;}
+        
+        for (NSString *ptyName in rawPropertys) {
+            objc_property_t pty = class_getProperty(cls, [ptyName UTF8String]);
+            if (pty == NULL) {
+                continue;
+            }
+            const char  *_att =  property_getAttributes(pty);
+            if (_att[0] != 'T' || _encodeMap[_att[1]] == 0) {continue;}
             // 指针类型只支持void *
             if (_att[1] == '^' && _att[2] != 'v') {continue;}
-            
-            NSString *ptyName = [NSString stringWithCString:property_getName(pty) encoding:NSUTF8StringEncoding];
             NSString *att = [NSString stringWithCString:_att encoding:NSUTF8StringEncoding];
-            for (NSString *raw_ptyName in rawPropertys) {
-                if ([raw_ptyName isEqualToString:ptyName]) {
-                    SEL setSel = _ping_synthesize_setsel(ptyName);
-                    SEL getSel = _ping_synthesize_getSel(ptyName);
-                    uintptr_t policy = _ping_analyze_policy(att);
-                    _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)_att);
-                    break;
-                }
+            if ([rawPropertys containsObject:ptyName]) {
+                SEL setSel = _ping_synthesize_setsel(ptyName);
+                SEL getSel = _ping_synthesize_getSel(ptyName);
+                uintptr_t policy = _ping_analyze_policy(att);
+                _ping_dispense_setget_implementation(policy, setSel, getSel, cls,(char *)_att);
             }
         }
-        free(ptys);
+        
     }
 }
 

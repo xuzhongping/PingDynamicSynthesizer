@@ -1,28 +1,25 @@
 //
-//  PingDynamicSynthesizerDemoTests.m
+//  PingDynamicSynthesizerPrivateTest.m
 //  PingDynamicSynthesizerDemoTests
 //
-//  Created by JungHsu on 2017/12/10.
-//  Copyright © 2017年 JungHsu. All rights reserved.
+//  Created by 徐仲平 on 2019/3/25.
+//  Copyright © 2019 徐仲平. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-
-@interface PingDynamicSynthesizerDemoTests : XCTestCase
+@interface PingDynamicSynthesizerPrivateTest : XCTestCase
 
 @end
 
-@implementation PingDynamicSynthesizerDemoTests
+@implementation PingDynamicSynthesizerPrivateTest
 
 - (void)setUp {
-    [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
 }
 
 
@@ -32,5 +29,7 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
+
 
 @end

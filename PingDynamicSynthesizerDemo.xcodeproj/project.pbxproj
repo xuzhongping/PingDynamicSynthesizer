@@ -22,6 +22,11 @@
 		EDD11A2E1FDCE6C100ACDE05 /* Person+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A2D1FDCE6C100ACDE05 /* Person+Extra.m */; };
 		EDD11A341FDCE72000ACDE05 /* PingDynamicSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A301FDCE72000ACDE05 /* PingDynamicSynthesizer.m */; };
 		EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */; };
+		EDF739642248ACC6006CD850 /* Fizz.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF739632248ACC6006CD850 /* Fizz.m */; };
+		EDF739672248AD22006CD850 /* Fizz+Ex1.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF739662248AD22006CD850 /* Fizz+Ex1.m */; };
+		EDF7396A2248B641006CD850 /* PingCopyFizz.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF739692248B641006CD850 /* PingCopyFizz.m */; };
+		EDF7396C2248CA5D006CD850 /* PingDynamicSynthesizerFunctionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF7396B2248CA5D006CD850 /* PingDynamicSynthesizerFunctionTest.m */; };
+		EDF7396E2248CB87006CD850 /* PingDynamicSynthesizerPrivateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF7396D2248CB87006CD850 /* PingDynamicSynthesizerPrivateTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +77,14 @@
 		EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingWeakHelper.m; sourceTree = "<group>"; };
 		EDD11A321FDCE72000ACDE05 /* PingWeakHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingWeakHelper.h; sourceTree = "<group>"; };
 		EDD11A331FDCE72000ACDE05 /* PingDynamicSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingDynamicSynthesizer.h; sourceTree = "<group>"; };
+		EDF739622248ACC6006CD850 /* Fizz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fizz.h; sourceTree = "<group>"; };
+		EDF739632248ACC6006CD850 /* Fizz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fizz.m; sourceTree = "<group>"; };
+		EDF739652248AD22006CD850 /* Fizz+Ex1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fizz+Ex1.h"; sourceTree = "<group>"; };
+		EDF739662248AD22006CD850 /* Fizz+Ex1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Fizz+Ex1.m"; sourceTree = "<group>"; };
+		EDF739682248B641006CD850 /* PingCopyFizz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PingCopyFizz.h; sourceTree = "<group>"; };
+		EDF739692248B641006CD850 /* PingCopyFizz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingCopyFizz.m; sourceTree = "<group>"; };
+		EDF7396B2248CA5D006CD850 /* PingDynamicSynthesizerFunctionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizerFunctionTest.m; sourceTree = "<group>"; };
+		EDF7396D2248CB87006CD850 /* PingDynamicSynthesizerPrivateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizerPrivateTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +160,7 @@
 		EDD11A0F1FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				EDF7395F2248A7C7006CD850 /* PingDynamicSynthesizerTests */,
 				EDD11A101FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m */,
 				EDD11A121FDCE69300ACDE05 /* Info.plist */,
 			);
@@ -173,6 +187,21 @@
 				ED01149422019DB600D6B20B /* PingNonObjHelper.m */,
 			);
 			path = PingDynamicSynthesizer;
+			sourceTree = "<group>";
+		};
+		EDF7395F2248A7C7006CD850 /* PingDynamicSynthesizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7396B2248CA5D006CD850 /* PingDynamicSynthesizerFunctionTest.m */,
+				EDF7396D2248CB87006CD850 /* PingDynamicSynthesizerPrivateTest.m */,
+				EDF739622248ACC6006CD850 /* Fizz.h */,
+				EDF739632248ACC6006CD850 /* Fizz.m */,
+				EDF739652248AD22006CD850 /* Fizz+Ex1.h */,
+				EDF739662248AD22006CD850 /* Fizz+Ex1.m */,
+				EDF739682248B641006CD850 /* PingCopyFizz.h */,
+				EDF739692248B641006CD850 /* PingCopyFizz.m */,
+			);
+			path = PingDynamicSynthesizerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF7396E2248CB87006CD850 /* PingDynamicSynthesizerPrivateTest.m in Sources */,
+				EDF7396A2248B641006CD850 /* PingCopyFizz.m in Sources */,
+				EDF7396C2248CA5D006CD850 /* PingDynamicSynthesizerFunctionTest.m in Sources */,
+				EDF739672248AD22006CD850 /* Fizz+Ex1.m in Sources */,
+				EDF739642248ACC6006CD850 /* Fizz.m in Sources */,
 				EDD11A111FDCE69300ACDE05 /* PingDynamicSynthesizerDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
