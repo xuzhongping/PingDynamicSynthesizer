@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Person+Extra.h"
 #import "PingNonObjHelper.h"
+#import <objc/message.h>
 
 @interface ViewController ()
 
@@ -18,7 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    NSObject *obj = [NSObject new];
+    NSObject *value = [NSObject new];
+    objc_setAssociatedObject(obj, @"testSEL", value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    NSLog(@"%@",objc_getAssociatedObject(obj, @"testSEL"));
 }
 
 
