@@ -10,6 +10,35 @@
 		ED01149522019DB600D6B20B /* PingNonObjHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ED01149422019DB600D6B20B /* PingNonObjHelper.m */; };
 		ED2C669020302FDF00FFAD55 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C668F20302FDF00FFAD55 /* Student.m */; };
 		ED2C66932030300600FFAD55 /* Student+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2C66922030300600FFAD55 /* Student+Extra.m */; };
+		EDCC1289224CA4900004167D /* PingCase25.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1251224CA48C0004167D /* PingCase25.m */; };
+		EDCC128A224CA4900004167D /* PingCase5.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1252224CA48C0004167D /* PingCase5.m */; };
+		EDCC128B224CA4900004167D /* PingCase22.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1255224CA48C0004167D /* PingCase22.m */; };
+		EDCC128C224CA4900004167D /* PingCase20.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1256224CA48C0004167D /* PingCase20.m */; };
+		EDCC128D224CA4900004167D /* PingCase12.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC125C224CA48C0004167D /* PingCase12.m */; };
+		EDCC128E224CA4900004167D /* PingCase23.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC125E224CA48C0004167D /* PingCase23.m */; };
+		EDCC128F224CA4900004167D /* PingCase4.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1261224CA48D0004167D /* PingCase4.m */; };
+		EDCC1290224CA4900004167D /* PingCase15.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1262224CA48D0004167D /* PingCase15.m */; };
+		EDCC1291224CA4900004167D /* PingCase11.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1264224CA48D0004167D /* PingCase11.m */; };
+		EDCC1292224CA4900004167D /* PingCase24.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1265224CA48D0004167D /* PingCase24.m */; };
+		EDCC1293224CA4900004167D /* PingCase13.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1268224CA48D0004167D /* PingCase13.m */; };
+		EDCC1294224CA4900004167D /* PingCase9.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC126A224CA48D0004167D /* PingCase9.m */; };
+		EDCC1295224CA4900004167D /* PingCase7.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC126B224CA48D0004167D /* PingCase7.m */; };
+		EDCC1296224CA4900004167D /* PingCase16.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC126C224CA48D0004167D /* PingCase16.m */; };
+		EDCC1297224CA4900004167D /* PingCase3.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC126D224CA48E0004167D /* PingCase3.m */; };
+		EDCC1298224CA4900004167D /* PingCase14.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1273224CA48E0004167D /* PingCase14.m */; };
+		EDCC1299224CA4900004167D /* PingCase28.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1274224CA48E0004167D /* PingCase28.m */; };
+		EDCC129A224CA4900004167D /* PingCase19.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1276224CA48E0004167D /* PingCase19.m */; };
+		EDCC129B224CA4900004167D /* PingCase6.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1277224CA48E0004167D /* PingCase6.m */; };
+		EDCC129C224CA4900004167D /* PingCase30.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC127B224CA48F0004167D /* PingCase30.m */; };
+		EDCC129D224CA4900004167D /* PingCase27.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC127E224CA48F0004167D /* PingCase27.m */; };
+		EDCC129E224CA4900004167D /* PingCase18.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC127F224CA48F0004167D /* PingCase18.m */; };
+		EDCC129F224CA4900004167D /* PingCase26.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1280224CA48F0004167D /* PingCase26.m */; };
+		EDCC12A0224CA4900004167D /* PingCase2.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1281224CA48F0004167D /* PingCase2.m */; };
+		EDCC12A1224CA4900004167D /* PingCase29.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1282224CA48F0004167D /* PingCase29.m */; };
+		EDCC12A2224CA4900004167D /* PingCase21.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1283224CA48F0004167D /* PingCase21.m */; };
+		EDCC12A3224CA4900004167D /* PingCase17.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1285224CA48F0004167D /* PingCase17.m */; };
+		EDCC12A4224CA4900004167D /* PingCase10.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1287224CA4900004167D /* PingCase10.m */; };
+		EDCC12A5224CA4900004167D /* PingCase8.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCC1288224CA4900004167D /* PingCase8.m */; };
 		EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119F81FDCE69300ACDE05 /* AppDelegate.m */; };
 		EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD119FB1FDCE69300ACDE05 /* ViewController.m */; };
 		EDD119FF1FDCE69300ACDE05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD119FD1FDCE69300ACDE05 /* Main.storyboard */; };
@@ -24,35 +53,6 @@
 		EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD11A311FDCE72000ACDE05 /* PingWeakHelper.m */; };
 		EDDE402B224BBC8E00F3D44F /* PingDynamicSynthesizerPerformanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE402A224BBC8E00F3D44F /* PingDynamicSynthesizerPerformanceTest.m */; };
 		EDDE40B4224BD2E500F3D44F /* PingCase1.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40B2224BD2E500F3D44F /* PingCase1.m */; };
-		EDDE40EF224BD48800F3D44F /* PingCase14.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40B7224BD48400F3D44F /* PingCase14.m */; };
-		EDDE40F0224BD48800F3D44F /* PingCase10.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40BC224BD48500F3D44F /* PingCase10.m */; };
-		EDDE40F1224BD48800F3D44F /* PingCase8.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40BF224BD48500F3D44F /* PingCase8.m */; };
-		EDDE40F2224BD48800F3D44F /* PingCase28.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C0224BD48500F3D44F /* PingCase28.m */; };
-		EDDE40F3224BD48800F3D44F /* PingCase29.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C1224BD48500F3D44F /* PingCase29.m */; };
-		EDDE40F4224BD48800F3D44F /* PingCase27.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C4224BD48500F3D44F /* PingCase27.m */; };
-		EDDE40F5224BD48800F3D44F /* PingCase16.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C6224BD48500F3D44F /* PingCase16.m */; };
-		EDDE40F6224BD48900F3D44F /* PingCase20.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C7224BD48500F3D44F /* PingCase20.m */; };
-		EDDE40F7224BD48900F3D44F /* PingCase13.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40C8224BD48500F3D44F /* PingCase13.m */; };
-		EDDE40F8224BD48900F3D44F /* PingCase7.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40CA224BD48500F3D44F /* PingCase7.m */; };
-		EDDE40F9224BD48900F3D44F /* PingCase18.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40CC224BD48500F3D44F /* PingCase18.m */; };
-		EDDE40FA224BD48900F3D44F /* PingCase19.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40CF224BD48600F3D44F /* PingCase19.m */; };
-		EDDE40FB224BD48900F3D44F /* PingCase17.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D0224BD48600F3D44F /* PingCase17.m */; };
-		EDDE40FC224BD48900F3D44F /* PingCase21.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D1224BD48600F3D44F /* PingCase21.m */; };
-		EDDE40FD224BD48900F3D44F /* PingCase25.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D3224BD48600F3D44F /* PingCase25.m */; };
-		EDDE40FE224BD48900F3D44F /* PingCase2.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D4224BD48600F3D44F /* PingCase2.m */; };
-		EDDE40FF224BD48900F3D44F /* PingCase5.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D8224BD48600F3D44F /* PingCase5.m */; };
-		EDDE4100224BD48900F3D44F /* PingCase11.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40D9224BD48600F3D44F /* PingCase11.m */; };
-		EDDE4101224BD48900F3D44F /* PingCase22.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40DA224BD48700F3D44F /* PingCase22.m */; };
-		EDDE4102224BD48900F3D44F /* PingCase9.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40DD224BD48700F3D44F /* PingCase9.m */; };
-		EDDE4103224BD48900F3D44F /* PingCase26.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40E0224BD48700F3D44F /* PingCase26.m */; };
-		EDDE4104224BD48900F3D44F /* PingCase15.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40E3224BD48700F3D44F /* PingCase15.m */; };
-		EDDE4105224BD48900F3D44F /* PingCase3.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40E5224BD48800F3D44F /* PingCase3.m */; };
-		EDDE4106224BD48900F3D44F /* PingCase4.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40E6224BD48800F3D44F /* PingCase4.m */; };
-		EDDE4107224BD48900F3D44F /* PingCase30.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40E7224BD48800F3D44F /* PingCase30.m */; };
-		EDDE4108224BD48900F3D44F /* PingCase6.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40EA224BD48800F3D44F /* PingCase6.m */; };
-		EDDE4109224BD48900F3D44F /* PingCase23.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40EB224BD48800F3D44F /* PingCase23.m */; };
-		EDDE410A224BD48900F3D44F /* PingCase24.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40EC224BD48800F3D44F /* PingCase24.m */; };
-		EDDE410B224BD48900F3D44F /* PingCase12.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40EE224BD48800F3D44F /* PingCase12.m */; };
 		EDDE410C224BD4D000F3D44F /* PingCase1.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDE40B2224BD2E500F3D44F /* PingCase1.m */; };
 		EDF739642248ACC6006CD850 /* Fizz.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF739632248ACC6006CD850 /* Fizz.m */; };
 		EDF739672248AD22006CD850 /* Fizz+Ex1.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF739662248AD22006CD850 /* Fizz+Ex1.m */; };
@@ -85,6 +85,64 @@
 		ED2C668F20302FDF00FFAD55 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		ED2C66912030300600FFAD55 /* Student+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Student+Extra.h"; sourceTree = "<group>"; };
 		ED2C66922030300600FFAD55 /* Student+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Student+Extra.m"; sourceTree = "<group>"; };
+		EDCC124F224CA48C0004167D /* PingCase26.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase26.h; sourceTree = "<group>"; };
+		EDCC1250224CA48C0004167D /* PingCase22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase22.h; sourceTree = "<group>"; };
+		EDCC1251224CA48C0004167D /* PingCase25.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase25.m; sourceTree = "<group>"; };
+		EDCC1252224CA48C0004167D /* PingCase5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase5.m; sourceTree = "<group>"; };
+		EDCC1253224CA48C0004167D /* PingCase8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase8.h; sourceTree = "<group>"; };
+		EDCC1254224CA48C0004167D /* PingCase24.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase24.h; sourceTree = "<group>"; };
+		EDCC1255224CA48C0004167D /* PingCase22.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase22.m; sourceTree = "<group>"; };
+		EDCC1256224CA48C0004167D /* PingCase20.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase20.m; sourceTree = "<group>"; };
+		EDCC1257224CA48C0004167D /* PingCase6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase6.h; sourceTree = "<group>"; };
+		EDCC1258224CA48C0004167D /* PingCase20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase20.h; sourceTree = "<group>"; };
+		EDCC1259224CA48C0004167D /* PingCase12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase12.h; sourceTree = "<group>"; };
+		EDCC125A224CA48C0004167D /* PingCase14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase14.h; sourceTree = "<group>"; };
+		EDCC125B224CA48C0004167D /* PingCase15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase15.h; sourceTree = "<group>"; };
+		EDCC125C224CA48C0004167D /* PingCase12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase12.m; sourceTree = "<group>"; };
+		EDCC125D224CA48C0004167D /* PingCase19.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase19.h; sourceTree = "<group>"; };
+		EDCC125E224CA48C0004167D /* PingCase23.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase23.m; sourceTree = "<group>"; };
+		EDCC125F224CA48D0004167D /* PingCase2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase2.h; sourceTree = "<group>"; };
+		EDCC1260224CA48D0004167D /* PingCase17.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase17.h; sourceTree = "<group>"; };
+		EDCC1261224CA48D0004167D /* PingCase4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase4.m; sourceTree = "<group>"; };
+		EDCC1262224CA48D0004167D /* PingCase15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase15.m; sourceTree = "<group>"; };
+		EDCC1263224CA48D0004167D /* PingCase30.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase30.h; sourceTree = "<group>"; };
+		EDCC1264224CA48D0004167D /* PingCase11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase11.m; sourceTree = "<group>"; };
+		EDCC1265224CA48D0004167D /* PingCase24.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase24.m; sourceTree = "<group>"; };
+		EDCC1266224CA48D0004167D /* PingCase16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase16.h; sourceTree = "<group>"; };
+		EDCC1267224CA48D0004167D /* PingCase9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase9.h; sourceTree = "<group>"; };
+		EDCC1268224CA48D0004167D /* PingCase13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase13.m; sourceTree = "<group>"; };
+		EDCC1269224CA48D0004167D /* PingCase13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase13.h; sourceTree = "<group>"; };
+		EDCC126A224CA48D0004167D /* PingCase9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase9.m; sourceTree = "<group>"; };
+		EDCC126B224CA48D0004167D /* PingCase7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase7.m; sourceTree = "<group>"; };
+		EDCC126C224CA48D0004167D /* PingCase16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase16.m; sourceTree = "<group>"; };
+		EDCC126D224CA48E0004167D /* PingCase3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase3.m; sourceTree = "<group>"; };
+		EDCC126E224CA48E0004167D /* PingCase25.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase25.h; sourceTree = "<group>"; };
+		EDCC126F224CA48E0004167D /* PingCase7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase7.h; sourceTree = "<group>"; };
+		EDCC1270224CA48E0004167D /* PingCase18.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase18.h; sourceTree = "<group>"; };
+		EDCC1271224CA48E0004167D /* PingCase23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase23.h; sourceTree = "<group>"; };
+		EDCC1272224CA48E0004167D /* PingCase10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase10.h; sourceTree = "<group>"; };
+		EDCC1273224CA48E0004167D /* PingCase14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase14.m; sourceTree = "<group>"; };
+		EDCC1274224CA48E0004167D /* PingCase28.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase28.m; sourceTree = "<group>"; };
+		EDCC1275224CA48E0004167D /* PingCase3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase3.h; sourceTree = "<group>"; };
+		EDCC1276224CA48E0004167D /* PingCase19.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase19.m; sourceTree = "<group>"; };
+		EDCC1277224CA48E0004167D /* PingCase6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase6.m; sourceTree = "<group>"; };
+		EDCC1278224CA48E0004167D /* PingCase5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase5.h; sourceTree = "<group>"; };
+		EDCC1279224CA48F0004167D /* PingCase29.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase29.h; sourceTree = "<group>"; };
+		EDCC127A224CA48F0004167D /* PingCase11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase11.h; sourceTree = "<group>"; };
+		EDCC127B224CA48F0004167D /* PingCase30.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase30.m; sourceTree = "<group>"; };
+		EDCC127C224CA48F0004167D /* PingCase28.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase28.h; sourceTree = "<group>"; };
+		EDCC127D224CA48F0004167D /* PingCase27.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase27.h; sourceTree = "<group>"; };
+		EDCC127E224CA48F0004167D /* PingCase27.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase27.m; sourceTree = "<group>"; };
+		EDCC127F224CA48F0004167D /* PingCase18.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase18.m; sourceTree = "<group>"; };
+		EDCC1280224CA48F0004167D /* PingCase26.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase26.m; sourceTree = "<group>"; };
+		EDCC1281224CA48F0004167D /* PingCase2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase2.m; sourceTree = "<group>"; };
+		EDCC1282224CA48F0004167D /* PingCase29.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase29.m; sourceTree = "<group>"; };
+		EDCC1283224CA48F0004167D /* PingCase21.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase21.m; sourceTree = "<group>"; };
+		EDCC1284224CA48F0004167D /* PingCase4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase4.h; sourceTree = "<group>"; };
+		EDCC1285224CA48F0004167D /* PingCase17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase17.m; sourceTree = "<group>"; };
+		EDCC1286224CA4900004167D /* PingCase21.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase21.h; sourceTree = "<group>"; };
+		EDCC1287224CA4900004167D /* PingCase10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase10.m; sourceTree = "<group>"; };
+		EDCC1288224CA4900004167D /* PingCase8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase8.m; sourceTree = "<group>"; };
 		EDD119F41FDCE69300ACDE05 /* PingDynamicSynthesizerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PingDynamicSynthesizerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD119F71FDCE69300ACDE05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDD119F81FDCE69300ACDE05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,64 +170,6 @@
 		EDDE402A224BBC8E00F3D44F /* PingDynamicSynthesizerPerformanceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PingDynamicSynthesizerPerformanceTest.m; sourceTree = "<group>"; };
 		EDDE40B2224BD2E500F3D44F /* PingCase1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase1.m; sourceTree = "<group>"; };
 		EDDE40B3224BD2E500F3D44F /* PingCase1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase1.h; sourceTree = "<group>"; };
-		EDDE40B5224BD48400F3D44F /* PingCase12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase12.h; sourceTree = "<group>"; };
-		EDDE40B6224BD48400F3D44F /* PingCase19.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase19.h; sourceTree = "<group>"; };
-		EDDE40B7224BD48400F3D44F /* PingCase14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase14.m; sourceTree = "<group>"; };
-		EDDE40B8224BD48400F3D44F /* PingCase4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase4.h; sourceTree = "<group>"; };
-		EDDE40B9224BD48400F3D44F /* PingCase14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase14.h; sourceTree = "<group>"; };
-		EDDE40BA224BD48400F3D44F /* PingCase21.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase21.h; sourceTree = "<group>"; };
-		EDDE40BB224BD48400F3D44F /* PingCase29.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase29.h; sourceTree = "<group>"; };
-		EDDE40BC224BD48500F3D44F /* PingCase10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase10.m; sourceTree = "<group>"; };
-		EDDE40BD224BD48500F3D44F /* PingCase7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase7.h; sourceTree = "<group>"; };
-		EDDE40BE224BD48500F3D44F /* PingCase26.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase26.h; sourceTree = "<group>"; };
-		EDDE40BF224BD48500F3D44F /* PingCase8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase8.m; sourceTree = "<group>"; };
-		EDDE40C0224BD48500F3D44F /* PingCase28.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase28.m; sourceTree = "<group>"; };
-		EDDE40C1224BD48500F3D44F /* PingCase29.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase29.m; sourceTree = "<group>"; };
-		EDDE40C2224BD48500F3D44F /* PingCase10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase10.h; sourceTree = "<group>"; };
-		EDDE40C3224BD48500F3D44F /* PingCase9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase9.h; sourceTree = "<group>"; };
-		EDDE40C4224BD48500F3D44F /* PingCase27.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase27.m; sourceTree = "<group>"; };
-		EDDE40C5224BD48500F3D44F /* PingCase6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase6.h; sourceTree = "<group>"; };
-		EDDE40C6224BD48500F3D44F /* PingCase16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase16.m; sourceTree = "<group>"; };
-		EDDE40C7224BD48500F3D44F /* PingCase20.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase20.m; sourceTree = "<group>"; };
-		EDDE40C8224BD48500F3D44F /* PingCase13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase13.m; sourceTree = "<group>"; };
-		EDDE40C9224BD48500F3D44F /* PingCase11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase11.h; sourceTree = "<group>"; };
-		EDDE40CA224BD48500F3D44F /* PingCase7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase7.m; sourceTree = "<group>"; };
-		EDDE40CB224BD48500F3D44F /* PingCase17.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase17.h; sourceTree = "<group>"; };
-		EDDE40CC224BD48500F3D44F /* PingCase18.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase18.m; sourceTree = "<group>"; };
-		EDDE40CD224BD48500F3D44F /* PingCase20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase20.h; sourceTree = "<group>"; };
-		EDDE40CE224BD48600F3D44F /* PingCase18.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase18.h; sourceTree = "<group>"; };
-		EDDE40CF224BD48600F3D44F /* PingCase19.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase19.m; sourceTree = "<group>"; };
-		EDDE40D0224BD48600F3D44F /* PingCase17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase17.m; sourceTree = "<group>"; };
-		EDDE40D1224BD48600F3D44F /* PingCase21.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase21.m; sourceTree = "<group>"; };
-		EDDE40D2224BD48600F3D44F /* PingCase5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase5.h; sourceTree = "<group>"; };
-		EDDE40D3224BD48600F3D44F /* PingCase25.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase25.m; sourceTree = "<group>"; };
-		EDDE40D4224BD48600F3D44F /* PingCase2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase2.m; sourceTree = "<group>"; };
-		EDDE40D5224BD48600F3D44F /* PingCase30.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase30.h; sourceTree = "<group>"; };
-		EDDE40D6224BD48600F3D44F /* PingCase23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase23.h; sourceTree = "<group>"; };
-		EDDE40D7224BD48600F3D44F /* PingCase16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase16.h; sourceTree = "<group>"; };
-		EDDE40D8224BD48600F3D44F /* PingCase5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase5.m; sourceTree = "<group>"; };
-		EDDE40D9224BD48600F3D44F /* PingCase11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase11.m; sourceTree = "<group>"; };
-		EDDE40DA224BD48700F3D44F /* PingCase22.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase22.m; sourceTree = "<group>"; };
-		EDDE40DB224BD48700F3D44F /* PingCase22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase22.h; sourceTree = "<group>"; };
-		EDDE40DC224BD48700F3D44F /* PingCase8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase8.h; sourceTree = "<group>"; };
-		EDDE40DD224BD48700F3D44F /* PingCase9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase9.m; sourceTree = "<group>"; };
-		EDDE40DE224BD48700F3D44F /* PingCase25.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase25.h; sourceTree = "<group>"; };
-		EDDE40DF224BD48700F3D44F /* PingCase3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase3.h; sourceTree = "<group>"; };
-		EDDE40E0224BD48700F3D44F /* PingCase26.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase26.m; sourceTree = "<group>"; };
-		EDDE40E1224BD48700F3D44F /* PingCase27.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase27.h; sourceTree = "<group>"; };
-		EDDE40E2224BD48700F3D44F /* PingCase2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase2.h; sourceTree = "<group>"; };
-		EDDE40E3224BD48700F3D44F /* PingCase15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase15.m; sourceTree = "<group>"; };
-		EDDE40E4224BD48700F3D44F /* PingCase28.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase28.h; sourceTree = "<group>"; };
-		EDDE40E5224BD48800F3D44F /* PingCase3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase3.m; sourceTree = "<group>"; };
-		EDDE40E6224BD48800F3D44F /* PingCase4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase4.m; sourceTree = "<group>"; };
-		EDDE40E7224BD48800F3D44F /* PingCase30.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase30.m; sourceTree = "<group>"; };
-		EDDE40E8224BD48800F3D44F /* PingCase24.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase24.h; sourceTree = "<group>"; };
-		EDDE40E9224BD48800F3D44F /* PingCase15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase15.h; sourceTree = "<group>"; };
-		EDDE40EA224BD48800F3D44F /* PingCase6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase6.m; sourceTree = "<group>"; };
-		EDDE40EB224BD48800F3D44F /* PingCase23.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase23.m; sourceTree = "<group>"; };
-		EDDE40EC224BD48800F3D44F /* PingCase24.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase24.m; sourceTree = "<group>"; };
-		EDDE40ED224BD48800F3D44F /* PingCase13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingCase13.h; sourceTree = "<group>"; };
-		EDDE40EE224BD48800F3D44F /* PingCase12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingCase12.m; sourceTree = "<group>"; };
 		EDF739622248ACC6006CD850 /* Fizz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fizz.h; sourceTree = "<group>"; };
 		EDF739632248ACC6006CD850 /* Fizz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fizz.m; sourceTree = "<group>"; };
 		EDF739652248AD22006CD850 /* Fizz+Ex1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fizz+Ex1.h"; sourceTree = "<group>"; };
@@ -288,64 +288,64 @@
 			children = (
 				EDDE40B3224BD2E500F3D44F /* PingCase1.h */,
 				EDDE40B2224BD2E500F3D44F /* PingCase1.m */,
-				EDDE40E2224BD48700F3D44F /* PingCase2.h */,
-				EDDE40D4224BD48600F3D44F /* PingCase2.m */,
-				EDDE40DF224BD48700F3D44F /* PingCase3.h */,
-				EDDE40E5224BD48800F3D44F /* PingCase3.m */,
-				EDDE40B8224BD48400F3D44F /* PingCase4.h */,
-				EDDE40E6224BD48800F3D44F /* PingCase4.m */,
-				EDDE40D2224BD48600F3D44F /* PingCase5.h */,
-				EDDE40D8224BD48600F3D44F /* PingCase5.m */,
-				EDDE40C5224BD48500F3D44F /* PingCase6.h */,
-				EDDE40EA224BD48800F3D44F /* PingCase6.m */,
-				EDDE40BD224BD48500F3D44F /* PingCase7.h */,
-				EDDE40CA224BD48500F3D44F /* PingCase7.m */,
-				EDDE40DC224BD48700F3D44F /* PingCase8.h */,
-				EDDE40BF224BD48500F3D44F /* PingCase8.m */,
-				EDDE40C3224BD48500F3D44F /* PingCase9.h */,
-				EDDE40DD224BD48700F3D44F /* PingCase9.m */,
-				EDDE40C2224BD48500F3D44F /* PingCase10.h */,
-				EDDE40BC224BD48500F3D44F /* PingCase10.m */,
-				EDDE40C9224BD48500F3D44F /* PingCase11.h */,
-				EDDE40D9224BD48600F3D44F /* PingCase11.m */,
-				EDDE40B5224BD48400F3D44F /* PingCase12.h */,
-				EDDE40EE224BD48800F3D44F /* PingCase12.m */,
-				EDDE40ED224BD48800F3D44F /* PingCase13.h */,
-				EDDE40C8224BD48500F3D44F /* PingCase13.m */,
-				EDDE40B9224BD48400F3D44F /* PingCase14.h */,
-				EDDE40B7224BD48400F3D44F /* PingCase14.m */,
-				EDDE40E9224BD48800F3D44F /* PingCase15.h */,
-				EDDE40E3224BD48700F3D44F /* PingCase15.m */,
-				EDDE40D7224BD48600F3D44F /* PingCase16.h */,
-				EDDE40C6224BD48500F3D44F /* PingCase16.m */,
-				EDDE40CB224BD48500F3D44F /* PingCase17.h */,
-				EDDE40D0224BD48600F3D44F /* PingCase17.m */,
-				EDDE40CE224BD48600F3D44F /* PingCase18.h */,
-				EDDE40CC224BD48500F3D44F /* PingCase18.m */,
-				EDDE40B6224BD48400F3D44F /* PingCase19.h */,
-				EDDE40CF224BD48600F3D44F /* PingCase19.m */,
-				EDDE40CD224BD48500F3D44F /* PingCase20.h */,
-				EDDE40C7224BD48500F3D44F /* PingCase20.m */,
-				EDDE40BA224BD48400F3D44F /* PingCase21.h */,
-				EDDE40D1224BD48600F3D44F /* PingCase21.m */,
-				EDDE40DB224BD48700F3D44F /* PingCase22.h */,
-				EDDE40DA224BD48700F3D44F /* PingCase22.m */,
-				EDDE40D6224BD48600F3D44F /* PingCase23.h */,
-				EDDE40EB224BD48800F3D44F /* PingCase23.m */,
-				EDDE40E8224BD48800F3D44F /* PingCase24.h */,
-				EDDE40EC224BD48800F3D44F /* PingCase24.m */,
-				EDDE40DE224BD48700F3D44F /* PingCase25.h */,
-				EDDE40D3224BD48600F3D44F /* PingCase25.m */,
-				EDDE40BE224BD48500F3D44F /* PingCase26.h */,
-				EDDE40E0224BD48700F3D44F /* PingCase26.m */,
-				EDDE40E1224BD48700F3D44F /* PingCase27.h */,
-				EDDE40C4224BD48500F3D44F /* PingCase27.m */,
-				EDDE40E4224BD48700F3D44F /* PingCase28.h */,
-				EDDE40C0224BD48500F3D44F /* PingCase28.m */,
-				EDDE40BB224BD48400F3D44F /* PingCase29.h */,
-				EDDE40C1224BD48500F3D44F /* PingCase29.m */,
-				EDDE40D5224BD48600F3D44F /* PingCase30.h */,
-				EDDE40E7224BD48800F3D44F /* PingCase30.m */,
+				EDCC125F224CA48D0004167D /* PingCase2.h */,
+				EDCC1281224CA48F0004167D /* PingCase2.m */,
+				EDCC1275224CA48E0004167D /* PingCase3.h */,
+				EDCC126D224CA48E0004167D /* PingCase3.m */,
+				EDCC1284224CA48F0004167D /* PingCase4.h */,
+				EDCC1261224CA48D0004167D /* PingCase4.m */,
+				EDCC1278224CA48E0004167D /* PingCase5.h */,
+				EDCC1252224CA48C0004167D /* PingCase5.m */,
+				EDCC1257224CA48C0004167D /* PingCase6.h */,
+				EDCC1277224CA48E0004167D /* PingCase6.m */,
+				EDCC126F224CA48E0004167D /* PingCase7.h */,
+				EDCC126B224CA48D0004167D /* PingCase7.m */,
+				EDCC1253224CA48C0004167D /* PingCase8.h */,
+				EDCC1288224CA4900004167D /* PingCase8.m */,
+				EDCC1267224CA48D0004167D /* PingCase9.h */,
+				EDCC126A224CA48D0004167D /* PingCase9.m */,
+				EDCC1272224CA48E0004167D /* PingCase10.h */,
+				EDCC1287224CA4900004167D /* PingCase10.m */,
+				EDCC127A224CA48F0004167D /* PingCase11.h */,
+				EDCC1264224CA48D0004167D /* PingCase11.m */,
+				EDCC1259224CA48C0004167D /* PingCase12.h */,
+				EDCC125C224CA48C0004167D /* PingCase12.m */,
+				EDCC1269224CA48D0004167D /* PingCase13.h */,
+				EDCC1268224CA48D0004167D /* PingCase13.m */,
+				EDCC125A224CA48C0004167D /* PingCase14.h */,
+				EDCC1273224CA48E0004167D /* PingCase14.m */,
+				EDCC125B224CA48C0004167D /* PingCase15.h */,
+				EDCC1262224CA48D0004167D /* PingCase15.m */,
+				EDCC1266224CA48D0004167D /* PingCase16.h */,
+				EDCC126C224CA48D0004167D /* PingCase16.m */,
+				EDCC1260224CA48D0004167D /* PingCase17.h */,
+				EDCC1285224CA48F0004167D /* PingCase17.m */,
+				EDCC1270224CA48E0004167D /* PingCase18.h */,
+				EDCC127F224CA48F0004167D /* PingCase18.m */,
+				EDCC125D224CA48C0004167D /* PingCase19.h */,
+				EDCC1276224CA48E0004167D /* PingCase19.m */,
+				EDCC1258224CA48C0004167D /* PingCase20.h */,
+				EDCC1256224CA48C0004167D /* PingCase20.m */,
+				EDCC1286224CA4900004167D /* PingCase21.h */,
+				EDCC1283224CA48F0004167D /* PingCase21.m */,
+				EDCC1250224CA48C0004167D /* PingCase22.h */,
+				EDCC1255224CA48C0004167D /* PingCase22.m */,
+				EDCC1271224CA48E0004167D /* PingCase23.h */,
+				EDCC125E224CA48C0004167D /* PingCase23.m */,
+				EDCC1254224CA48C0004167D /* PingCase24.h */,
+				EDCC1265224CA48D0004167D /* PingCase24.m */,
+				EDCC126E224CA48E0004167D /* PingCase25.h */,
+				EDCC1251224CA48C0004167D /* PingCase25.m */,
+				EDCC124F224CA48C0004167D /* PingCase26.h */,
+				EDCC1280224CA48F0004167D /* PingCase26.m */,
+				EDCC127D224CA48F0004167D /* PingCase27.h */,
+				EDCC127E224CA48F0004167D /* PingCase27.m */,
+				EDCC127C224CA48F0004167D /* PingCase28.h */,
+				EDCC1274224CA48E0004167D /* PingCase28.m */,
+				EDCC1279224CA48F0004167D /* PingCase29.h */,
+				EDCC1282224CA48F0004167D /* PingCase29.m */,
+				EDCC1263224CA48D0004167D /* PingCase30.h */,
+				EDCC127B224CA48F0004167D /* PingCase30.m */,
 			);
 			path = Case;
 			sourceTree = "<group>";
@@ -499,46 +499,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCC129A224CA4900004167D /* PingCase19.m in Sources */,
+				EDCC1292224CA4900004167D /* PingCase24.m in Sources */,
 				EDDE410C224BD4D000F3D44F /* PingCase1.m in Sources */,
-				EDDE40FE224BD48900F3D44F /* PingCase2.m in Sources */,
-				EDDE410A224BD48900F3D44F /* PingCase24.m in Sources */,
+				EDCC1298224CA4900004167D /* PingCase14.m in Sources */,
+				EDCC128C224CA4900004167D /* PingCase20.m in Sources */,
 				EDD119FC1FDCE69300ACDE05 /* ViewController.m in Sources */,
-				EDDE4105224BD48900F3D44F /* PingCase3.m in Sources */,
-				EDDE40FF224BD48900F3D44F /* PingCase5.m in Sources */,
+				EDCC1291224CA4900004167D /* PingCase11.m in Sources */,
 				ED01149522019DB600D6B20B /* PingNonObjHelper.m in Sources */,
-				EDDE4103224BD48900F3D44F /* PingCase26.m in Sources */,
-				EDDE410B224BD48900F3D44F /* PingCase12.m in Sources */,
+				EDCC128D224CA4900004167D /* PingCase12.m in Sources */,
+				EDCC1297224CA4900004167D /* PingCase3.m in Sources */,
+				EDCC129C224CA4900004167D /* PingCase30.m in Sources */,
+				EDCC1293224CA4900004167D /* PingCase13.m in Sources */,
 				EDD11A351FDCE72000ACDE05 /* PingWeakHelper.m in Sources */,
-				EDDE40FA224BD48900F3D44F /* PingCase19.m in Sources */,
-				EDDE4109224BD48900F3D44F /* PingCase23.m in Sources */,
-				EDDE40F1224BD48800F3D44F /* PingCase8.m in Sources */,
+				EDCC1299224CA4900004167D /* PingCase28.m in Sources */,
+				EDCC12A2224CA4900004167D /* PingCase21.m in Sources */,
 				EDD11A071FDCE69300ACDE05 /* main.m in Sources */,
+				EDCC12A5224CA4900004167D /* PingCase8.m in Sources */,
+				EDCC129B224CA4900004167D /* PingCase6.m in Sources */,
+				EDCC12A1224CA4900004167D /* PingCase29.m in Sources */,
+				EDCC128B224CA4900004167D /* PingCase22.m in Sources */,
+				EDCC128E224CA4900004167D /* PingCase23.m in Sources */,
 				ED2C669020302FDF00FFAD55 /* Student.m in Sources */,
-				EDDE40F7224BD48900F3D44F /* PingCase13.m in Sources */,
+				EDCC1294224CA4900004167D /* PingCase9.m in Sources */,
+				EDCC12A0224CA4900004167D /* PingCase2.m in Sources */,
 				EDD11A341FDCE72000ACDE05 /* PingDynamicSynthesizer.m in Sources */,
-				EDDE40F6224BD48900F3D44F /* PingCase20.m in Sources */,
-				EDDE40F0224BD48800F3D44F /* PingCase10.m in Sources */,
-				EDDE4101224BD48900F3D44F /* PingCase22.m in Sources */,
-				EDDE40F5224BD48800F3D44F /* PingCase16.m in Sources */,
-				EDDE40FC224BD48900F3D44F /* PingCase21.m in Sources */,
-				EDDE4106224BD48900F3D44F /* PingCase4.m in Sources */,
 				EDD11A2B1FDCE6B200ACDE05 /* Person.m in Sources */,
-				EDDE4102224BD48900F3D44F /* PingCase9.m in Sources */,
+				EDCC129E224CA4900004167D /* PingCase18.m in Sources */,
+				EDCC1290224CA4900004167D /* PingCase15.m in Sources */,
+				EDCC128A224CA4900004167D /* PingCase5.m in Sources */,
+				EDCC129F224CA4900004167D /* PingCase26.m in Sources */,
+				EDCC1289224CA4900004167D /* PingCase25.m in Sources */,
+				EDCC128F224CA4900004167D /* PingCase4.m in Sources */,
+				EDCC129D224CA4900004167D /* PingCase27.m in Sources */,
 				EDD11A2E1FDCE6C100ACDE05 /* Person+Extra.m in Sources */,
-				EDDE4107224BD48900F3D44F /* PingCase30.m in Sources */,
-				EDDE40F9224BD48900F3D44F /* PingCase18.m in Sources */,
-				EDDE40FD224BD48900F3D44F /* PingCase25.m in Sources */,
-				EDDE40F4224BD48800F3D44F /* PingCase27.m in Sources */,
-				EDDE4108224BD48900F3D44F /* PingCase6.m in Sources */,
-				EDDE4104224BD48900F3D44F /* PingCase15.m in Sources */,
 				ED2C66932030300600FFAD55 /* Student+Extra.m in Sources */,
-				EDDE40F8224BD48900F3D44F /* PingCase7.m in Sources */,
-				EDDE40F2224BD48800F3D44F /* PingCase28.m in Sources */,
-				EDDE40FB224BD48900F3D44F /* PingCase17.m in Sources */,
 				EDD119F91FDCE69300ACDE05 /* AppDelegate.m in Sources */,
-				EDDE40F3224BD48800F3D44F /* PingCase29.m in Sources */,
-				EDDE40EF224BD48800F3D44F /* PingCase14.m in Sources */,
-				EDDE4100224BD48900F3D44F /* PingCase11.m in Sources */,
+				EDCC1296224CA4900004167D /* PingCase16.m in Sources */,
+				EDCC12A4224CA4900004167D /* PingCase10.m in Sources */,
+				EDCC1295224CA4900004167D /* PingCase7.m in Sources */,
+				EDCC12A3224CA4900004167D /* PingCase17.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

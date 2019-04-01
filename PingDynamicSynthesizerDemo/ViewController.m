@@ -43,6 +43,7 @@
 #import "PingCase30.h"
 
 
+
 @interface ViewController ()
 
 
@@ -95,6 +96,7 @@ extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
         [PingDynamicSynthesizer ping_dynamicProperty:[PingCase28 class]];
         [PingDynamicSynthesizer ping_dynamicProperty:[PingCase29 class]];
         [PingDynamicSynthesizer ping_dynamicProperty:[PingCase30 class]];
+
     });
     NSLog(@"Avg. Runtime: %llu ns", t); // Avg. Runtime: 445703 ns
 }

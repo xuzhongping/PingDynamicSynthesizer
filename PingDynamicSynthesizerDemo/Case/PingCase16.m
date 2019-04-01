@@ -9,5 +9,30 @@
 #import "PingCase16.h"
 
 @implementation PingCase16
-
+@dynamic classObj;
+@dynamic strongObj;
+@dynamic weakObj;
+@dynamic assignObj;
+@dynamic iCopyObj;
+@dynamic atomicStrongObj;
+@dynamic atomicWeakObj;
+@dynamic atomicAssignObj;
+@dynamic atomicCopyObj;
+@dynamic uIntegerValue;
+@dynamic integerValue;
+@dynamic boolValue;
+@dynamic charValue;
+@dynamic shortValue;
+@dynamic intValue;
+@dynamic longValue;
+@dynamic dlongValue;
+@dynamic floatValue;
+@dynamic doubleValue;
+@dynamic ucharValue;
+@dynamic ushortValue;
+@dynamic uintValue;
+@dynamic ulongValue;
+@dynamic udlongValue;
+@dynamic cStrValue;
+@dynamic voidPValue;
 @end

@@ -11,17 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PingCase16 : NSObject
-
-@end
-
-@interface PingCase16(Ex)<DynamicPropertyProtocol>
+@interface PingCase16 : NSObject<DynamicPropertyProtocol>
 @property (nonatomic, strong) Class         classObj;
 @property (nonatomic, strong) NSObject      *strongObj;
 @property (nonatomic,   weak) NSObject      *weakObj;
 @property (nonatomic, assign) NSObject      *assignObj;
-@property (nonatomic,   copy) NSString      *copyObj;
-
+@property (nonatomic,   copy) NSString      *iCopyObj;
 
 @property (atomic, strong) NSObject  *atomicStrongObj;
 @property (atomic,   weak) NSObject  *atomicWeakObj;
@@ -49,5 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) char   *cStrValue;
 @property (nonatomic, assign) void  *voidPValue;
 @end
+
 
 NS_ASSUME_NONNULL_END

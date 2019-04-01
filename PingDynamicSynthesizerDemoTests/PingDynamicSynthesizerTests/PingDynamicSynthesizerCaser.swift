@@ -10,7 +10,7 @@ import Foundation
 
 class PingDynamicSynthesizerCaser {
     func caser() -> Void {
-        let dir = "/Users/junghsu/Desktop/myGithub/PingDynamicSynthesizer/PingDynamicSynthesizerDemoTests/PingDynamicSynthesizerTests"
+        let dir = "/Users/junghsu/Desktop/myGithub/PingDynamicSynthesizer/PingDynamicSynthesizerDemo/Case"
         let casehPath = dir.appending("/PingCase1.h")
         let casemPath = dir.appending("/pingCase1.m");
         
